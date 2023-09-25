@@ -4,6 +4,7 @@ const GlobalStyles = createGlobalStyle`
 html {
   line-height: 1.15; 
   -webkit-text-size-adjust: 100%; 
+  font-family: 'Kumbh Sans', sans-serif;
 }
 body {
   margin: 0;
