@@ -4,7 +4,7 @@ const GlobalStyles = createGlobalStyle`
 html {
   line-height: 1.15; 
   -webkit-text-size-adjust: 100%; 
-  font-family: 'Kumbh Sans', sans-serif;
+  font-family: ${({ theme }) => theme.fontFamily.kumbh};
 }
 body {
   margin: 0;
