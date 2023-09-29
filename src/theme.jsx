@@ -8,6 +8,7 @@ const theme = {
     lightGrayishBlue: '#f7f8fd',
     white: '#ffffff',
     black: '#000000',
+    wine: '#471D1E',
   },
   fontFamily: {
     kumbh: 'Kumbh Sans, sans-serif',
