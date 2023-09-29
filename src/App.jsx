@@ -1,19 +1,20 @@
 import GlobalStyles from "./components/GlobalStyles";
-import styled, { ThemeProvider } from "styled-components";
+import { ThemeProvider } from "styled-components";
 import theme from "./theme";
+import Header from "./components/Header";
 
-const Paragrafo = styled.p`
-  color: ${({ theme }) => theme.colors.orange};
-  margin: 0;
-  padding: 0;
-`
+// const Paragrafo = styled.p`
+//   color: ${({ theme }) => theme.colors.orange};
+//   margin: 0;
+//   padding: 0;
+// `
 
 function App() {
 
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <Paragrafo>Teste</Paragrafo>
+      <Header />
     </ThemeProvider>
   )
 }
