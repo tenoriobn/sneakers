@@ -1,14 +1,14 @@
 import styled from "styled-components";
-import { Button, Icon } from "..";
+import { Icon, OpenAndCloseIcon } from "..";
 import close from './icon-close.svg';
 import PropTypes from 'prop-types';
 
 const BlurredBackground = styled.div`
   background-color: #00000081;
+
   position: fixed;
-  /* left: 100%; */
-  left: ${(props) => (props.$isOpen ? '0' : '-100%')};
   top: 0;
+  left: ${(props) => (props.$isOpen ? '0' : '-100%')};
   overflow-x: hidden;
   
   height: 100vh;
@@ -20,9 +20,8 @@ const SideMenu = styled.div`
   box-sizing: border-box;
   
   position: fixed;
-  /* left: 100%; */
-  left: ${(props) => (props.$isOpen ? '0' : '-100%')};
   top: 0;
+  left: ${(props) => (props.$isOpen ? '0' : '-100%')};
   overflow-x: hidden;
   
   padding: 1.5rem 0 0 1.5rem;
@@ -31,8 +30,17 @@ const SideMenu = styled.div`
   width: 66.67%;
 
   transition: left 0.3s Ease-Out;
-
   z-index: 1;
+
+  @media (min-width: 992px) {
+    background-color: inherit;
+    position: relative;
+    top: inherit;
+    left: inherit;
+    padding: 0;
+    height: auto;
+    width: auto;
+  }
 `;
 
 const ItemList = styled.ul`
@@ -41,20 +49,33 @@ const ItemList = styled.ul`
   gap: 1.5rem;
 
   list-style: none;
+
   margin-top: 52px;
   margin-bottom: 0;
   padding: 0;
-  `;
+
+  @media (min-width: 992px) {
+    flex-direction: row;
+    gap: 1.875rem;
+    margin-top: 0;
+  }
+`;
 
 const Item = styled.a`
-  text-decoration: none;
   color: ${({ theme }) => theme.colors.veryDarkBlue};
   font-size: 1.125rem;
   font-weight: 700;
   letter-spacing: 0.09px;
+  text-decoration: none;
 
   &:hover {
     color: ${({ theme }) => theme.colors.darkGrayishBlue};
+  }
+
+  @media (min-width: 992px) {
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: -0.16px;
   }
 `;
 
@@ -63,9 +84,9 @@ export default function MenuItems({ isOpen, toggleMenu }) {
     <>
     <BlurredBackground $isOpen={isOpen} onClick={toggleMenu} />
       <SideMenu $isOpen={isOpen}>
-        <Button onClick={toggleMenu}>
+        <OpenAndCloseIcon onClick={toggleMenu}>
           <Icon $icon={close} $width="0.84rem" $height="0.84rem" />
-        </Button>
+        </OpenAndCloseIcon>
 
         <ItemList>
           <li><Item href="#">Collections</Item></li>

@@ -9,6 +9,14 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
+
+  @media (min-width: 992px) {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 0 0;
+    width: 80%;
+  }
 }
 main {
   display: block;

@@ -7,8 +7,12 @@ import MenuItems from './MenuItems';
 import { useState } from 'react';
 
 const StylizedHeader = styled.header`
-  padding: 1.25rem 1.5rem 1.5rem 1.5rem;
   background-color: ${({ theme }) => theme.colors.lightGray};
+  padding: 1.25rem 1.5rem 1.5rem 1.5rem;
+
+  @media (min-width: 992px) {
+    padding: 1.75rem 0 2.125rem 0;
+  }
 `
 
 const Nav = styled.nav`
@@ -20,26 +24,40 @@ const Nav = styled.nav`
 const Container = styled.div`
   display: flex;
   align-items: center;
-  gap: ${props => props.$gap || '0'};
+  gap: ${props => props.$gapMobile || '0'};
+
+  @media (min-width: 992px) {
+    gap: ${props => props.$gapDesktop || '0'};
+  }
 `;
 
-export const Button = styled.button`
+const Button = styled.button`
   background-color: transparent;
   border: none;
   padding: 0;
 `;
 
+export const OpenAndCloseIcon = styled(Button)`
+  @media (min-width: 992px) {
+    display: none;
+  }
+`;
+
 export const Icon = styled.span`
   display: block;
   background-image: url(${props => props.$icon});
-  background-repeat: no-repeat;
   background-position: center;
-  width: ${props => props.$width || '1rem'};
+  background-repeat: no-repeat;
   height: ${props => props.$height || '1rem'};
+  width: ${props => props.$width || '1rem'};
 `;
 
 const Avatar = styled.img`
   width: 1.5rem;
+
+  @media (min-width: 992px) {
+    width: 3.125rem;
+  }
 `;
 
 export default function Header() {
@@ -52,23 +70,25 @@ export default function Header() {
   return (
     <StylizedHeader>
       <Nav>
-        <Container $gap="1rem">
-          <Button onClick={toggleMenu}>
-            <Icon $icon={menu} $width="1rem" $height="1rem" />
-          </Button>
+        <Container $gapDesktop="3.5rem">
+          <Container $gapMobile="1rem">
+            <OpenAndCloseIcon className="menu-button" onClick={toggleMenu}>
+              <Icon $icon={menu} $width="1rem" $height="1rem" />
+            </OpenAndCloseIcon>
 
-          <img src={logo} alt="sneaker logo" />
+            <img src={logo} alt="sneaker logo" />
+          </Container>
+
+          <MenuItems isOpen={isMenuOpen} toggleMenu={toggleMenu} />
         </Container>
 
-        <Container $gap="1.375rem">
+        <Container $gapMobile="1.375rem" $gapDesktop="2.875rem">
           <Button>
             <Icon $icon={cart} $width="1.375rem" $height="1.25rem" />
           </Button>
 
           <Avatar src={avatar} alt="profile picture" />
         </Container>
-
-        <MenuItems isOpen={isMenuOpen} toggleMenu={toggleMenu} />
       </Nav>
     </StylizedHeader>
   )
