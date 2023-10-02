@@ -12,6 +12,10 @@ const SlideIconContainer = styled.div`
   transform: translateY(-50%);
 
   width: 100%;
+
+  @media (min-width: 768px) {
+    display: none;
+  }
 `
 
 const IconBackground = styled.div`
