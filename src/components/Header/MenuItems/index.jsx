@@ -22,7 +22,7 @@ const SideMenu = styled.div`
   position: fixed;
   top: 0;
   left: ${(props) => (props.$isOpen ? '0' : '-100%')};
-  overflow-x: hidden;
+
   
   padding: 1.5rem 0 0 1.5rem;
   
@@ -50,14 +50,14 @@ const ItemList = styled.ul`
 
   list-style: none;
 
-  margin-top: 52px;
-  margin-bottom: 0;
+  margin: 3.5rem 0 0 0;
   padding: 0;
 
   @media (min-width: 992px) {
     flex-direction: row;
     gap: 1.875rem;
-    margin-top: 0;
+
+    margin: 0;
   }
 `;
 

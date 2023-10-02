@@ -2,6 +2,7 @@ import GlobalStyles from "./components/GlobalStyles";
 import { ThemeProvider } from "styled-components";
 import theme from "./theme";
 import Header from "./components/Header";
+import Slide from "./components/Slide";
 
 // const Paragrafo = styled.p`
 //   color: ${({ theme }) => theme.colors.orange};
@@ -15,6 +16,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <GlobalStyles />
       <Header />
+      <Slide />
     </ThemeProvider>
   )
 }
