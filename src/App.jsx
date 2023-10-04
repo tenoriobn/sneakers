@@ -3,20 +3,19 @@ import { ThemeProvider } from "styled-components";
 import theme from "./theme";
 import Header from "./components/Header";
 import Slide from "./components/Slide";
-
-// const Paragrafo = styled.p`
-//   color: ${({ theme }) => theme.colors.orange};
-//   margin: 0;
-//   padding: 0;
-// `
+import photos from "./photos.json";
+import { useState } from "react";
 
 function App() {
+  const [productPhotos] = useState(photos);
 
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
       <Header />
-      <Slide />
+      <Slide
+        slidePhotos={productPhotos}
+      />
     </ThemeProvider>
   )
 }

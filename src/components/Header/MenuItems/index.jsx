@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { Icon, OpenAndCloseIcon } from "..";
 import close from './icon-close.svg';
-import PropTypes from 'prop-types';
 
 const BlurredBackground = styled.div`
   background-color: #00000081;
@@ -99,8 +98,3 @@ export default function MenuItems({ isOpen, toggleMenu }) {
     </>
   )
 }
-
-MenuItems.propTypes = {
-  isOpen: PropTypes.bool.isRequired,
-  toggleMenu: PropTypes.func.isRequired,
-};

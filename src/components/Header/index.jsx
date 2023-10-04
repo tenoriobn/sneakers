@@ -39,6 +39,7 @@ const Container = styled.div`
 const Button = styled.button`
   background-color: transparent;
   border: none;
+  cursor: pointer;
   padding: 0;
 `;
 
@@ -53,6 +54,7 @@ export const Icon = styled.span`
   background-image: url(${props => props.$icon});
   background-position: center;
   background-repeat: no-repeat;
+  cursor: pointer;
   height: ${props => props.$height || '1rem'};
   width: ${props => props.$width || '1rem'};
 `;

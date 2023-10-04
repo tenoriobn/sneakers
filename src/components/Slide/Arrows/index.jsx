@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import next from './icon-next.svg';
 import previous from './icon-previous.svg';
-import PropTypes from 'prop-types';
 
 const SlideIconContainer = styled.div`
   display: flex;
@@ -39,9 +38,10 @@ const IconNext = styled.span`
   background-repeat: no-repeat;
   background-size: cover;
 
+  cursor: pointer;
+
   height: .875rem;
   width: .5rem;
-  cursor: pointer;
 `
 
 export default function Arrows({ nextImage, previousImage }) {
@@ -56,8 +56,3 @@ export default function Arrows({ nextImage, previousImage }) {
     </SlideIconContainer>
   )
 }
-
-Arrows.propTypes = {
-  nextImage: PropTypes.func.isRequired, // next deve ser uma função obrigatória
-  previousImage: PropTypes.func.isRequired, // previous deve ser uma função obrigatória
-};
