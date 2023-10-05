@@ -1,7 +1,9 @@
 import styled from "styled-components";
 import increase from "./icon-increase.svg"
 import decrease from "./icon-decrease.svg"
+import cart from "./icon-cart.svg"
 import { useState } from "react";
+import Button from "../../Button";
 
 const ProductPricingContainer = styled.div`
   display: flex;
@@ -81,6 +83,22 @@ const QuantityValue = styled.span`
   letter-spacing: .025rem;
 `;
 
+const ButtonIcon = styled.span`
+display: block;
+
+background-image: url(${props => props.$icon});
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+
+border: none;
+
+cursor: pointer;
+
+height: ${props => props.$height || '1rem'};
+width: ${props => props.$width || '1rem'};
+`
+
 export default function ProductPricing({ productData }) {
   const [quantity, setQuantity] = useState(0);
 
@@ -106,11 +124,28 @@ export default function ProductPricing({ productData }) {
 
       <div>
         <QuantityContainer>
-          <QuantityButton $icon={decrease} onClick={decreaseQuantity} />
+          <QuantityButton 
+            $icon={decrease} 
+            $width="0.875rem" 
+            $height="0.375rem"
+            onClick={decreaseQuantity} 
+          />
           <QuantityValue>{quantity}</QuantityValue>
-          <QuantityButton $icon={increase} onClick={increaseQuantity} />
+          <QuantityButton 
+            $icon={increase} 
+            $width="0.75rem" 
+            $height="0.75rem"
+            onClick={increaseQuantity} 
+          />
         </QuantityContainer>
-        <button>Add to cart</button>
+        <Button>
+          <ButtonIcon 
+            $icon={cart} 
+            $width="1.125rem" 
+            $height="1rem"
+          />
+          Add to cart
+        </Button>
       </div>
     </>
   )

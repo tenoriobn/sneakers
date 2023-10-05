@@ -24,8 +24,8 @@ const ProductName = styled.h2`
 
 const Description = styled.p`
   color: ${({theme}) => theme.colors.darkGrayishBlue};
-  font-size: 1rem;
-  letter-spacing: -0.023rem;
+  font-size: 15px;
+  letter-spacing: -0.004rem;
   line-height: normal;
 
   margin-top: 1rem;
