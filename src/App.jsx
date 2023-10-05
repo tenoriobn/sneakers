@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Slide from "./components/Slide";
 import photos from "./photos.json";
 import { useState } from "react";
+import ProductOverview from "./components/ProductOverview";
 
 function App() {
   const [productPhotos] = useState(photos);
@@ -13,9 +14,8 @@ function App() {
     <ThemeProvider theme={theme}>
       <GlobalStyles />
       <Header />
-      <Slide
-        slidePhotos={productPhotos}
-      />
+      <Slide slidePhotos={productPhotos} />
+      <ProductOverview />
     </ThemeProvider>
   )
 }
