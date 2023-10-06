@@ -21,7 +21,14 @@ const ListaOfImages = styled.ul`
 
 const StylizedThumbnail = styled.img`
   border-radius: .5rem;
+  cursor: pointer;
   width: 100%;
+
+  transition: opacity .3s ease-in-out;
+
+  &:hover {
+    opacity: .7;
+  }
 `
 
 export default function Thumbnail({ slidePhotos }) {
@@ -45,6 +52,7 @@ export default function Thumbnail({ slidePhotos }) {
   2º - ao clicar em um dos `thumbnails` expandir a imagem do thumbnails com carrossel e thumbnails em baixo
   3º - a imagem atual expandida tera seu respectivo thumbnail esmaecido.
   4º - o botão deve fechar a imagem expandida (assim como o estado de foco).
+  5º - Ao passar mouse por cima da imagem, oferecer zoom
 
 
   !IMPORTANTE, RESOLVER PRIMEIRO: As imagens com extensão `SVG` devem ser utilizada como componente

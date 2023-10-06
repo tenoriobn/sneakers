@@ -8,12 +8,12 @@ const ProductOverviewContainer = styled.section`
   margin-bottom: 5.5rem;
 
   @media (min-width: 992px) {
+    margin: 0;
     padding: 0;
+    width: 45%;
   }
 
   @media (min-width: 1200px) {
-    margin: 0;
-
     width: 444px;
   }
 `

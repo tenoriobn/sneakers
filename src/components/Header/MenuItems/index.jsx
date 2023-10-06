@@ -66,15 +66,39 @@ const Item = styled.a`
   font-weight: 700;
   letter-spacing: 0.09px;
   text-decoration: none;
+  padding-bottom: 49px;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 4px;
+    background-image: linear-gradient(90deg, #ff7d1a, #ff7d1a);
+    transition: width 0.3s ease;
+    color: red;
+  }
 
   &:hover {
     color: ${({ theme }) => theme.colors.darkGrayishBlue};
+    transition: color 1s;
+
+    &::after {
+      width: 100%;
+    }
   }
 
   @media (min-width: 992px) {
+    color: ${({ theme }) => theme.colors.darkGrayishBlue};
     font-size: 1rem;
     font-weight: 400;
     letter-spacing: -0.16px;
+
+    &:hover {
+    color: ${({ theme }) => theme.colors.veryDarkBlue};
+  }
   }
 `;
 

@@ -13,7 +13,9 @@ const CompanyName = styled.h3`
   @media (min-width: 768px) {
     font-size: .875rem;
     letter-spacing: .0656rem;
+  }
 
+  @media (min-width: 1200px) {
     margin-top: 3.75rem;
   }
 `
@@ -32,7 +34,7 @@ const ProductName = styled.h2`
     width: auto;
   }
 
-  @media (min-width: 992px) {
+  @media (min-width: 1200px) {
     font-size: 2.75rem;
     letter-spacing: 0.44px;
     line-height: 110.023%;
@@ -49,11 +51,11 @@ const Description = styled.p`
 
   margin-top: 1rem;
 
-  @media (min-width: 992px) {
+  @media (min-width: 1200px) {
     font-size: 1rem;
     font-weight: 500;
     letter-spacing: normal;
-    line-height: 140.023%;
+    line-height: 144.023%;
 
     margin-top: 2.5rem;
   }

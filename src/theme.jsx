@@ -1,13 +1,15 @@
 const theme = {
   colors: {
+    black: '#000000',
+    white: '#ffffff',
+    
     orange: '#ff7d1a',
     paleOrange: '#ffede0',
     veryDarkBlue: '#1d2025',
     darkGrayishBlue: '#68707d',
     grayishBlue: '#b6bcc8',
+    veryLightGray:    '#E8E8E8',
     lightGrayishBlue: '#f7f8fd',
-    white: '#ffffff',
-    black: '#000000',
     wine: '#471D1E',
   },
   fontFamily: {

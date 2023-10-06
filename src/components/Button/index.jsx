@@ -12,6 +12,8 @@ const StylizedButton = styled.button`
   border-radius: .5rem;
   box-sizing: border-box;
 
+  cursor: pointer;
+
   color: ${({theme}) => theme.colors.white};
   font-size: 1rem;
   font-weight: 700;
@@ -21,6 +23,14 @@ const StylizedButton = styled.button`
 
   height: 56px;
   width: 100%;
+
+  box-shadow: 0px 14px 14px 4px #FDE3CC;
+
+  transition: opacity 0.3s ease-in-out;
+
+  &:hover {
+    opacity: 0.8;
+  }
 
   @media (min-width: 992px) {
     margin: 0;

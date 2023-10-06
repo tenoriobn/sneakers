@@ -56,15 +56,18 @@ html {
   font-family: ${({ theme }) => theme.fontFamily.kumbh};
 }
 body {
-  margin: 0;
+  margin: 0 auto;
   min-height: 100vh;
+
+  width: 100%;
 
   @media (min-width: 992px) {
     display: flex;
     flex-direction: column;
-    margin: 0 auto;
+    
     padding: 0 0;
     width: 80%;
+    max-width: inherit;
   }
 
   @media (min-width: 1200px) {

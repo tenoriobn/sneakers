@@ -12,11 +12,14 @@ const Main = styled.main`
   @media (min-width: 768px) {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
   }
 
   @media (min-width: 992px) {
+    flex-direction: row;
+    justify-content: space-between;
     gap: 3rem;
+
 
     margin-top: 5.75rem;
     padding: 0 3rem;
@@ -24,8 +27,6 @@ const Main = styled.main`
 
   @media (min-width: 1200px) {
     align-items: flex-start;
-    justify-content: space-between;
-    flex-direction: row;
 
     box-sizing: border-box;
   }

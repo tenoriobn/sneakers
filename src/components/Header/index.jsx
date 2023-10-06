@@ -11,12 +11,9 @@ const StylizedHeader = styled.header`
   padding: 1.25rem 1.5rem 1.5rem 1.5rem;
 
   @media (min-width: 992px) {
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  @media (min-width: 992px) {
     padding: 1.75rem 0 2.125rem 0;
+    border-bottom: 1px solid;
+    border-color: ${({ theme }) => theme.colors.veryLightGray};
   }
 `
 
@@ -59,7 +56,12 @@ export const Icon = styled.span`
   width: ${props => props.$width || '1rem'};
 `;
 
+const Logo = styled.img`
+  cursor: pointer;
+`
+
 const Avatar = styled.img`
+  cursor: pointer;
   width: 1.5rem;
 
   @media (min-width: 992px) {
@@ -83,7 +85,7 @@ export default function Header() {
               <Icon $icon={menu} $width="1rem" $height="1rem" />
             </OpenAndCloseIcon>
 
-            <img src={logo} alt="sneaker logo" />
+            <Logo src={logo} alt="sneaker logo" />{/*Ao passar mouse sobre logo muda para a cor orange*/}
           </Container>
 
           <MenuItems isOpen={isMenuOpen} toggleMenu={toggleMenu} />

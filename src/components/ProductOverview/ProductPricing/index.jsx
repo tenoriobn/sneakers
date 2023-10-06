@@ -53,7 +53,7 @@ const Discount = styled.p`
 `
 
 const PriceWithoutDiscount = styled.p`
-  color: ${({theme}) => theme.colors.darkGrayishBlue};
+  color: ${({theme}) => theme.colors.grayishBlue};
   font-size: 1rem;
   font-weight: 700;
   letter-spacing: .022rem;
@@ -115,6 +115,12 @@ const QuantityButton = styled.button`
 
   height: ${props => props.$height || '1rem'};
   width: ${props => props.$width || '1rem'};
+
+  transition: opacity .3s ease-in-out;
+
+  &:hover {
+    opacity: .7;
+  }
 `;
 
 const QuantityValue = styled.span`
