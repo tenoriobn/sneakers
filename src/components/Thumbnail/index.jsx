@@ -4,13 +4,18 @@ const ListaOfImages = styled.ul`
   display: none;
 
 
-  @media (min-width: 768px) {
+  @media (min-width: 992px) {
     display: flex;
+    justify-content: space-between;
     gap: 1.75rem;
     list-style: none;
 
     margin-top: 2rem;
     padding: 0;
+  }
+
+  @media (min-width: 1200px) {
+    justify-content: inherit;
   }
 `
 

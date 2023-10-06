@@ -28,14 +28,16 @@ const ProductName = styled.h2`
   
   width: 254px;
 
+  @media (min-width: 768px) {
+    width: auto;
+  }
+
   @media (min-width: 992px) {
     font-size: 2.75rem;
     letter-spacing: 0.44px;
     line-height: 110.023%;
 
     margin-top: 1.25rem;
-
-    width: auto;
   }
 `
 

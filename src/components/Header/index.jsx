@@ -10,7 +10,7 @@ const StylizedHeader = styled.header`
   background-color: ${({ theme }) => theme.colors.lightGray};
   padding: 1.25rem 1.5rem 1.5rem 1.5rem;
 
-  @media (min-width: 768px) {
+  @media (min-width: 992px) {
     padding-left: 0;
     padding-right: 0;
   }

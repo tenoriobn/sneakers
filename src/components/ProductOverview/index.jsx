@@ -9,6 +9,9 @@ const ProductOverviewContainer = styled.section`
 
   @media (min-width: 992px) {
     padding: 0;
+  }
+
+  @media (min-width: 1200px) {
     margin: 0;
 
     width: 444px;

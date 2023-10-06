@@ -59,7 +59,7 @@ body {
   margin: 0;
   min-height: 100vh;
 
-  @media (min-width: 768px) {
+  @media (min-width: 992px) {
     display: flex;
     flex-direction: column;
     margin: 0 auto;

@@ -12,7 +12,7 @@ const SlideIconContainer = styled.div`
 
   width: 100%;
 
-  @media (min-width: 768px) {
+  @media (min-width: 992px) {
     display: none;
   }
 `

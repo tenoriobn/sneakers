@@ -6,7 +6,9 @@ import Thumbnail from '../Thumbnail';
 const SlideContainer = styled.section`
   position: relative;
 
-  @media (min-width: 768px) {
+  width: 100%;
+
+  @media (min-width: 1200px) {
     width: 444px;
   }
 `
@@ -18,12 +20,14 @@ const ProductImage = styled.img`
   width: 100%;
 
   @media (min-width: 425px) {
-    height: 350px;
+    height: 100%;
   }
   
-  @media (min-width: 768px) {
+  @media (min-width: 992px) {
     border-radius: 1rem;
+  }
 
+  @media (min-width: 1200px) {
     height: 445px;
     width: 445px;
   }

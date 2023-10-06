@@ -90,10 +90,14 @@ const QuantityContainer = styled.div`
   padding: 0 1.5rem;
 
   @media (min-width: 992px) {
-    max-width: 156px;
+
     margin: 0;
 
     width: 100%;
+  }
+
+  @media (min-width: 1200px) {
+    max-width: 156px;
   }
 `
 

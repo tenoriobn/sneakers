@@ -23,8 +23,11 @@ const StylizedButton = styled.button`
   width: 100%;
 
   @media (min-width: 992px) {
-    max-width: 272px;
     margin: 0;
+  }
+
+  @media (min-width: 1200px) {
+    max-width: 272px;
   }
 `
 
