@@ -66,6 +66,11 @@ body {
     padding: 0 0;
     width: 80%;
   }
+
+  @media (min-width: 1200px) {
+    max-width: 1152px;
+    width: 100%;
+  }
 }
 `
 

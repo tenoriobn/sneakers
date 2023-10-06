@@ -17,6 +17,7 @@ const Main = styled.main`
 
   @media (min-width: 992px) {
     gap: 3rem;
+
     margin-top: 5.75rem;
     padding: 0 3rem;
   }
@@ -25,6 +26,8 @@ const Main = styled.main`
     align-items: flex-start;
     justify-content: space-between;
     flex-direction: row;
+
+    box-sizing: border-box;
   }
 `
 
