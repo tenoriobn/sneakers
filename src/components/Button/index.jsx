@@ -10,6 +10,7 @@ const StylizedButton = styled.button`
   background-color: ${({theme}) => theme.colors.orange};
   border: none;
   border-radius: .5rem;
+  box-sizing: border-box;
 
   color: ${({theme}) => theme.colors.white};
   font-size: 1rem;
@@ -20,6 +21,11 @@ const StylizedButton = styled.button`
 
   height: 56px;
   width: 100%;
+
+  @media (min-width: 992px) {
+    max-width: 272px;
+    margin: 0;
+  }
 `
 
 export default function Button({ children }) {

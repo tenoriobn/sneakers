@@ -9,6 +9,13 @@ const CompanyName = styled.h3`
   text-transform: uppercase;
 
   margin-top: 1.5rem;
+
+  @media (min-width: 768px) {
+    font-size: .875rem;
+    letter-spacing: .0656rem;
+
+    margin-top: 3.75rem;
+  }
 `
 
 const ProductName = styled.h2`
@@ -20,6 +27,16 @@ const ProductName = styled.h2`
   margin-top: .75rem;
   
   width: 254px;
+
+  @media (min-width: 992px) {
+    font-size: 2.75rem;
+    letter-spacing: 0.44px;
+    line-height: 110.023%;
+
+    margin-top: 1.25rem;
+
+    width: auto;
+  }
 `
 
 const Description = styled.p`
@@ -29,6 +46,15 @@ const Description = styled.p`
   line-height: normal;
 
   margin-top: 1rem;
+
+  @media (min-width: 992px) {
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: normal;
+    line-height: 140.023%;
+
+    margin-top: 2.5rem;
+  }
 `
 
 export default function ProductDescription({ productData }) {

@@ -10,6 +10,13 @@ const ProductPricingContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   margin-top: 1.75rem;
+
+  @media (min-width: 992px) {
+    flex-direction: column;
+    align-items: flex-start;
+
+    margin-top: 1.875rem;
+  }
 `
 
 const ProductPricingWrapper = styled.div`
@@ -23,6 +30,10 @@ const ProductValue = styled.p`
   font-size: 1.75rem;
   font-weight: 700;
   letter-spacing: .0788rem;
+
+  @media (min-width: 992px) {
+    font-size: 1.875rem;
+  }
 `
 
 const Discount = styled.p`
@@ -35,6 +46,10 @@ const Discount = styled.p`
   letter-spacing: .025rem;
 
   padding: .375rem .625rem;
+
+  @media (min-width: 992px) {
+    letter-spacing: .045rem;
+  }
 `
 
 const PriceWithoutDiscount = styled.p`
@@ -43,20 +58,43 @@ const PriceWithoutDiscount = styled.p`
   font-weight: 700;
   letter-spacing: .022rem;
   text-decoration: line-through;
+
+  @media (min-width: 992px) {
+    letter-spacing: .025rem;
+
+    margin-top: .75rem;
+  }
+`
+
+const QuantityControlPanel = styled.div`
+  @media (min-width: 992px) {
+    display: flex;
+    gap: 1rem;
+
+    margin-top: 2.25rem;
+  }
 `
 
 const QuantityContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-
+  
   background-color: ${({theme}) => theme.colors.lightGrayishBlue};
   border-radius: .5rem;
+  box-sizing: border-box;
 
   height: 56px;
 
   margin-top: 1.5rem;
   padding: 0 1.5rem;
+
+  @media (min-width: 992px) {
+    max-width: 156px;
+    margin: 0;
+
+    width: 100%;
+  }
 `
 
 const QuantityButton = styled.button`
@@ -122,7 +160,7 @@ export default function ProductPricing({ productData }) {
         <PriceWithoutDiscount>{productData.priceWithoutDiscount}</PriceWithoutDiscount> {/* Preço anterior sem desconto */}
       </ProductPricingContainer>
 
-      <div>
+      <QuantityControlPanel>
         <QuantityContainer>
           <QuantityButton 
             $icon={decrease} 
@@ -146,7 +184,7 @@ export default function ProductPricing({ productData }) {
           />
           Add to cart
         </Button>
-      </div>
+      </QuantityControlPanel>
     </>
   )
 }

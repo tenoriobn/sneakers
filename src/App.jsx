@@ -1,11 +1,21 @@
 import GlobalStyles from "./components/GlobalStyles";
-import { ThemeProvider } from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 import theme from "./theme";
 import Header from "./components/Header";
 import Slide from "./components/Slide";
 import photos from "./photos.json";
 import { useState } from "react";
 import ProductOverview from "./components/ProductOverview";
+
+const Main = styled.main`
+  @media (min-width: 992px) {
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 5.75rem;
+    padding: 0 3rem;
+  }
+`
 
 function App() {
   const [productPhotos] = useState(photos);
@@ -14,8 +24,10 @@ function App() {
     <ThemeProvider theme={theme}>
       <GlobalStyles />
       <Header />
-      <Slide slidePhotos={productPhotos} />
-      <ProductOverview />
+      <Main>
+        <Slide slidePhotos={productPhotos} />
+        <ProductOverview />
+      </Main>
     </ThemeProvider>
   )
 }

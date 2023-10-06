@@ -9,6 +9,7 @@ const ListaOfImages = styled.ul`
     gap: 1.75rem;
     list-style: none;
 
+    margin-top: 2rem;
     padding: 0;
   }
 `

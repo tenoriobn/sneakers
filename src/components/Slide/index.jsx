@@ -3,12 +3,10 @@ import Arrows from './arrows';
 import { useState } from 'react';
 import Thumbnail from '../Thumbnail';
 
-const SlideContainer = styled.div`
+const SlideContainer = styled.section`
   position: relative;
 
   @media (min-width: 768px) {
-    margin-top: 5.75rem;
-
     width: 444px;
   }
 `
