@@ -6,6 +6,7 @@ import Slide from "./components/Slide";
 import photos from "./photos.json";
 import { useState } from "react";
 import ProductOverview from "./components/ProductOverview";
+import Cart from "./components/Cart";
 
 const Main = styled.main`
 
@@ -43,6 +44,8 @@ function App() {
         <Slide slidePhotos={productPhotos} />
         <ProductOverview />
       </Main>
+
+      <Cart />
     </ThemeProvider>
   )
 }
