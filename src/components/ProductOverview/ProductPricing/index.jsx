@@ -186,7 +186,7 @@ export default function ProductPricing({ productData }) {
             onClick={increaseQuantity} 
           />
         </QuantityContainer>
-        <Button>
+        <Button $margin="1rem">
           <ButtonIcon 
             $icon={cart} 
             $width="1.125rem" 

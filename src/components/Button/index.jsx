@@ -19,7 +19,7 @@ const StylizedButton = styled.button`
   font-weight: 700;
   letter-spacing: .022rem;
 
-  margin-top: 1rem;
+  margin-top: ${props => props.$margin};
 
   height: 56px;
   width: 100%;
@@ -41,8 +41,8 @@ const StylizedButton = styled.button`
   }
 `
 
-export default function Button({ children }) {
+export default function Button({ $margin, children }) {
   return (
-    <StylizedButton>{children}</StylizedButton>
+    <StylizedButton $margin={$margin}>{children}</StylizedButton>
   )
 }
