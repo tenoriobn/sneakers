@@ -5,15 +5,18 @@ import menu from './icon-menu.svg';
 import cart from './icon-cart.svg';
 import MenuItems from './MenuItems';
 import { useState } from 'react';
+import Cart from '../Cart';
 
 const StylizedHeader = styled.header`
   background-color: ${({ theme }) => theme.colors.lightGray};
+
   padding: 1.25rem 1.5rem 1.5rem 1.5rem;
 
   @media (min-width: 992px) {
-    padding: 1.75rem 0 2.125rem 0;
     border-bottom: 1px solid;
     border-color: ${({ theme }) => theme.colors.veryLightGray};
+
+    padding: 1.75rem 0 2.125rem 0;
   }
 `
 
@@ -28,6 +31,8 @@ const Container = styled.div`
   align-items: center;
   gap: ${props => props.$gapMobile || '0'};
 
+  position: relative;
+
   @media (min-width: 992px) {
     gap: ${props => props.$gapDesktop || '0'};
   }
@@ -36,7 +41,9 @@ const Container = styled.div`
 const Button = styled.button`
   background-color: transparent;
   border: none;
+
   cursor: pointer;
+
   padding: 0;
 `;
 
@@ -48,10 +55,13 @@ export const OpenAndCloseIcon = styled(Button)`
 
 export const Icon = styled.span`
   display: block;
+
   background-image: url(${props => props.$icon});
   background-position: center;
   background-repeat: no-repeat;
+
   cursor: pointer;
+  
   height: ${props => props.$height || '1rem'};
   width: ${props => props.$width || '1rem'};
 `;
@@ -95,6 +105,8 @@ export default function Header() {
           <Button>
             <Icon $icon={cart} $width="1.375rem" $height="1.25rem" />
           </Button>
+          
+          <Cart />
 
           <Avatar src={avatar} alt="profile picture" />
         </Container>

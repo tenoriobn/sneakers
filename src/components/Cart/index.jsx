@@ -4,32 +4,52 @@ import styled from 'styled-components';
 import Button from '../Button';
 
 const CartContainer = styled.div`
+  background-color: ${({theme}) => theme.colors.white};
   border-radius: .5rem;
   box-shadow: 0px 14px 50px -24px #1d2025;
+  box-sizing: border-box;
 
-  max-width: 360px;
-  min-height: 256px;
-
-  width: 100%;
-
+  position: fixed;
+  top: 78px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
 
   padding: 1.25rem 0 2rem 0;
 
-  box-sizing: border-box;
+  height: 256px;
+  max-width: 360px;
+  width: 100%; 
 
-  margin-left: .5rem;
-  margin-bottom: 5rem;
+  /* Posicionamento do Cart para versões desktop */
+  @media (min-width: 768px){
+    left: 74%;
+  }
+
+  @media (min-width: 992px){
+    left: 60%;
+    top: 92px;
+    transform: none;
+  }
+
+  @media (min-width: 1200px){
+    left: 65%;
+  }
 `
 
 const CartTitle = styled.h2`
   color: ${({theme}) => theme.colors.veryDarkBlue};
   font-size: 1rem;
   font-weight: 700;
+  text-align: left;
 
   padding: 0 1.5rem 1.75rem 1.5rem;
 `
 
 const ProductList = styled.ul`
+  display: flex;
+  flex-direction: column;
+
   border-top: 1px solid;
   border-color: ${({theme}) => theme.colors.veryLightGray};
 
@@ -53,14 +73,16 @@ const ProductContainer = styled.div `
 const ProductImage = styled.img`
   border-radius: .25rem;
 
-  width: 50px;
   height: 50px;
+  width: 50px;
 `
 
 const ProductInfoContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: .375rem;
+
+  align-items: flex-start;
 `
 
 const ProductName = styled.p`
@@ -120,3 +142,14 @@ export default function Cart() {
     </CartContainer>
   )
 }
+
+
+/*
+
+  Utilizar esse componente no lugar certo
+
+  - Aqui vai pegar via status os dados dinamicamente para preencher `ProductName` e `ProductValue`
+  sendo que se for selecionado mais de 3 produtos, deve mostrar o valor de cada item e o valor
+  multiplicado pela quantidade.
+
+*/

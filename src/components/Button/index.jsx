@@ -10,6 +10,8 @@ const StylizedButton = styled.button`
   background-color: ${({theme}) => theme.colors.orange};
   border: none;
   border-radius: .5rem;
+  box-shadow: ${({ $boxShadow }) => $boxShadow ? '0px 14px 14px 4px #FDE3CC' : 'none'};
+
   box-sizing: border-box;
 
   cursor: pointer;
@@ -24,8 +26,6 @@ const StylizedButton = styled.button`
   height: 56px;
   width: 100%;
 
-  box-shadow: 0px 14px 14px 4px #FDE3CC;
-
   transition: opacity 0.3s ease-in-out;
 
   &:hover {
@@ -37,12 +37,18 @@ const StylizedButton = styled.button`
   }
 
   @media (min-width: 1200px) {
-    max-width: 272px;
+    max-width: ${props => props.$width};
   }
 `
 
-export default function Button({ $margin, children }) {
+export default function Button({ $margin, $width, $boxShadow, children }) {
   return (
-    <StylizedButton $margin={$margin}>{children}</StylizedButton>
+    <StylizedButton 
+      $margin={$margin}
+      $boxShadow={$boxShadow}
+      $width={$width}
+    >
+      {children}
+    </StylizedButton>
   )
 }
