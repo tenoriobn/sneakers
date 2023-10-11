@@ -68,6 +68,7 @@ const Item = styled.a`
   text-decoration: none;
   padding-bottom: 49px;
   position: relative;
+  transition: .3s ease-in-out;
 
   &::after {
     content: "";
@@ -83,7 +84,7 @@ const Item = styled.a`
 
   &:hover {
     color: ${({ theme }) => theme.colors.darkGrayishBlue};
-    transition: color 1s;
+    transition: color .3s ease-in-out;
 
     &::after {
       width: 100%;

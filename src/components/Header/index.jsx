@@ -71,8 +71,20 @@ const Logo = styled.img`
 `
 
 const Avatar = styled.img`
+  border: 2px solid transparent;
+  border-radius: 50%;
+
   cursor: pointer;
+
+  overflow: hidden;
+  transition: border-color .3s ease-in-out;
+
   width: 1.5rem;
+
+  &:hover {
+    border-color: ${({theme}) => theme.colors.orange};
+
+  }
 
   @media (min-width: 992px) {
     width: 3.125rem;
@@ -81,10 +93,15 @@ const Avatar = styled.img`
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false)
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen)
+    setIsMenuOpen(!isMenuOpen);
   };
+
+  const toggleCart = () => {
+    setIsCartOpen(!isCartOpen);
+  }
 
   return (
     <StylizedHeader>
@@ -102,11 +119,11 @@ export default function Header() {
         </Container>
 
         <Container $gapMobile="1.375rem" $gapDesktop="2.875rem">
-          <Button>
+          <Button onClick={toggleCart}>
             <Icon $icon={cart} $width="1.375rem" $height="1.25rem" />
           </Button>
-          
-          <Cart />
+
+          {isCartOpen && <Cart  />}
 
           <Avatar src={avatar} alt="profile picture" />
         </Container>
