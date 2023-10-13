@@ -123,7 +123,7 @@ export default function Header() {
             <Icon $icon={cart} $width="1.375rem" $height="1.25rem" />
           </Button>
 
-          {isCartOpen && <Cart  />}
+          {isCartOpen && <Cart  />} {/* Ao clicar fora do cart ele também deve fechar */}
 
           <Avatar src={avatar} alt="profile picture" />
         </Container>
