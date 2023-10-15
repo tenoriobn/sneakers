@@ -6,7 +6,7 @@ import cart from './icon-cart.svg';
 import MenuItems from './MenuItems';
 import { useState } from 'react';
 import Cart from '../Cart';
-import theme from '../../theme';
+import theme from '@/theme';
 
 const StylizedHeader = styled.header`
   background-color: ${theme.colors.lightGray};

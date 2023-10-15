@@ -1,7 +1,7 @@
 import styled, { ThemeProvider } from "styled-components";
 import Header from "../Header";
 import GlobalStyles from "../GlobalStyles";
-import theme from '../../theme';
+import theme from '@/theme';
 import { Outlet } from "react-router-dom";
 
 const Main = styled.main`

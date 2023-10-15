@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-import theme from '../../theme';
+import theme from '@/theme';
 
 const GlobalStyles = createGlobalStyle`
 /* http://meyerweb.com/eric/tools/css/reset/

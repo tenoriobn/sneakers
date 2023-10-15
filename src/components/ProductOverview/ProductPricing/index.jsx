@@ -4,7 +4,7 @@ import decrease from "./icon-decrease.svg"
 import cart from "./icon-cart.svg"
 import { useState } from "react";
 import Button from "../../Button";
-import theme from "../../../theme";
+import theme from "@/theme";
 
 const ProductPricingContainer = styled.div`
   display: flex;

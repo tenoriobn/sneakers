@@ -2,7 +2,7 @@ import product from './image-product-1-thumbnail.jpg';
 import deleteIcon from './icon-delete.svg';
 import styled from 'styled-components';
 import Button from '../Button';
-import theme from '../../theme';
+import theme from '@/theme';
 
 const CartContainer = styled.div`
   background-color: ${theme.colors.white};

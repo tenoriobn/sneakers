@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import next from './icon-next.svg';
 import previous from './icon-previous.svg';
-import theme from '../../../theme';
+import theme from '@/theme'
 
 const SlideIconContainer = styled.div`
   display: flex;

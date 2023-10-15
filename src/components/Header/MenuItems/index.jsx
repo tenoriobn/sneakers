@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Icon, OpenAndCloseIcon } from "..";
 import close from './icon-close.svg';
-import theme from "../../../theme";
+import theme from "@/theme";
 
 const BlurredBackground = styled.div`
   background-color: #00000081;

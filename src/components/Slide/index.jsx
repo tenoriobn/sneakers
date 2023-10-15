@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Arrows from './arrows';
+import Arrows from './Arrows';
 import { useState } from 'react';
 import Thumbnail from '../Thumbnail';
 
