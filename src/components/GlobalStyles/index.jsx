@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import theme from '../../theme';
 
 const GlobalStyles = createGlobalStyle`
 /* http://meyerweb.com/eric/tools/css/reset/
@@ -53,7 +54,7 @@ table {
 html {
   line-height: 1.15; 
   -webkit-text-size-adjust: 100%; 
-  font-family: ${({ theme }) => theme.fontFamily.kumbh};
+  font-family: ${theme.fontFamily.kumbh};
 }
 body {
   margin: 0 auto;

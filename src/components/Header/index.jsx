@@ -6,15 +6,16 @@ import cart from './icon-cart.svg';
 import MenuItems from './MenuItems';
 import { useState } from 'react';
 import Cart from '../Cart';
+import theme from '../../theme';
 
 const StylizedHeader = styled.header`
-  background-color: ${({ theme }) => theme.colors.lightGray};
+  background-color: ${theme.colors.lightGray};
 
   padding: 1.25rem 1.5rem 1.5rem 1.5rem;
 
   @media (min-width: 992px) {
     border-bottom: 1px solid;
-    border-color: ${({ theme }) => theme.colors.veryLightGray};
+    border-color: ${theme.colors.veryLightGray};
 
     padding: 1.75rem 0 2.125rem 0;
   }
@@ -82,7 +83,7 @@ const Avatar = styled.img`
   width: 1.5rem;
 
   &:hover {
-    border-color: ${({theme}) => theme.colors.orange};
+    border-color: ${theme.colors.orange};
 
   }
 
@@ -93,7 +94,7 @@ const Avatar = styled.img`
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isCartOpen, setIsCartOpen] = useState(false)
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -123,7 +124,7 @@ export default function Header() {
             <Icon $icon={cart} $width="1.375rem" $height="1.25rem" />
           </Button>
 
-          {isCartOpen && <Cart  />} {/* Ao clicar fora do cart ele também deve fechar */}
+          {isCartOpen && <Cart />} {/* Ao clicar fora do cart ele também deve fechar */}
 
           <Avatar src={avatar} alt="profile picture" />
         </Container>

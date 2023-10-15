@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import next from './icon-next.svg';
 import previous from './icon-previous.svg';
+import theme from '../../../theme';
 
 const SlideIconContainer = styled.div`
   display: flex;
@@ -18,7 +19,7 @@ const SlideIconContainer = styled.div`
 `
 
 const IconBackground = styled.div`
-  background-color: ${({theme}) => theme.colors.white};
+  background-color: ${theme.colors.white};
   border-radius: 50%;
 
   display: flex;

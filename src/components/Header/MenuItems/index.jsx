@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Icon, OpenAndCloseIcon } from "..";
 import close from './icon-close.svg';
+import theme from "../../../theme";
 
 const BlurredBackground = styled.div`
   background-color: #00000081;
@@ -15,7 +16,7 @@ const BlurredBackground = styled.div`
 `
 
 const SideMenu = styled.div`
-  background-color: ${({ theme }) => theme.colors.white};
+  background-color: ${theme.colors.white};
   box-sizing: border-box;
   
   position: fixed;
@@ -61,7 +62,7 @@ const ItemList = styled.ul`
 `;
 
 const Item = styled.a`
-  color: ${({ theme }) => theme.colors.veryDarkBlue};
+  color: ${theme.colors.veryDarkBlue};
   font-size: 1.125rem;
   font-weight: 700;
   letter-spacing: 0.09px;
@@ -83,7 +84,7 @@ const Item = styled.a`
   }
 
   &:hover {
-    color: ${({ theme }) => theme.colors.darkGrayishBlue};
+    color: ${theme.colors.darkGrayishBlue};
     transition: color .3s ease-in-out;
 
     &::after {
@@ -92,13 +93,13 @@ const Item = styled.a`
   }
 
   @media (min-width: 992px) {
-    color: ${({ theme }) => theme.colors.darkGrayishBlue};
+    color: ${theme.colors.darkGrayishBlue};
     font-size: 1rem;
     font-weight: 400;
     letter-spacing: -0.16px;
 
     &:hover {
-    color: ${({ theme }) => theme.colors.veryDarkBlue};
+    color: ${theme.colors.veryDarkBlue};
   }
   }
 `;

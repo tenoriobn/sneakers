@@ -2,9 +2,10 @@ import product from './image-product-1-thumbnail.jpg';
 import deleteIcon from './icon-delete.svg';
 import styled from 'styled-components';
 import Button from '../Button';
+import theme from '../../theme';
 
 const CartContainer = styled.div`
-  background-color: ${({theme}) => theme.colors.white};
+  background-color: ${theme.colors.white};
   border-radius: .5rem;
   box-shadow: 0px 14px 50px -24px #1d2025;
   box-sizing: border-box;
@@ -35,10 +36,12 @@ const CartContainer = styled.div`
   @media (min-width: 1200px){
     left: 65%;
   }
+
+  transition: opacity 3s ease-in-out;
 `
 
 const CartTitle = styled.h2`
-  color: ${({theme}) => theme.colors.veryDarkBlue};
+  color: ${theme.colors.veryDarkBlue};
   font-size: 1rem;
   font-weight: 700;
   text-align: left;
@@ -51,7 +54,7 @@ const ProductList = styled.ul`
   flex-direction: column;
 
   border-top: 1px solid;
-  border-color: ${({theme}) => theme.colors.veryLightGray};
+  border-color: ${theme.colors.veryLightGray};
 
   padding: 1.5rem 1.5rem 0 1.5rem;
 `
@@ -86,19 +89,19 @@ const ProductInfoContainer = styled.div`
 `
 
 const ProductName = styled.p`
-  color: ${({theme}) => theme.colors.darkGrayishBlue};
+  color: ${theme.colors.darkGrayishBlue};
   font-size: 1rem;
   font-weight: 500;
 `
 
 const ProductValue = styled.p`
-  color: ${({theme}) => theme.colors.darkGrayishBlue};
+  color: ${theme.colors.darkGrayishBlue};
   font-size: 1rem;
   font-weight: 500;
   letter-spacing: .02rem;
 
   span {
-    color: ${({theme}) => theme.colors.veryDarkBlue};
+    color: ${theme.colors.veryDarkBlue};
     font-weight: 700;
   }
 `
@@ -125,7 +128,7 @@ export default function Cart() {
         <li>
           <ItemContainer>
             <ProductContainer>
-              <ProductImage src={product} alt="" />
+              <ProductImage src={product} alt="Product image" />
 
               <ProductInfoContainer>
                 <ProductName>Fall Limited Edition Sneakers</ProductName>

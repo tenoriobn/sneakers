@@ -4,6 +4,7 @@ import decrease from "./icon-decrease.svg"
 import cart from "./icon-cart.svg"
 import { useState } from "react";
 import Button from "../../Button";
+import theme from "../../../theme";
 
 const ProductPricingContainer = styled.div`
   display: flex;
@@ -26,7 +27,7 @@ const ProductPricingWrapper = styled.div`
 `
 
 const ProductValue = styled.p`
-  color: ${({theme}) => theme.colors.veryDarkBlue};
+  color: ${theme.colors.veryDarkBlue};
   font-size: 1.75rem;
   font-weight: 700;
   letter-spacing: .0788rem;
@@ -37,10 +38,10 @@ const ProductValue = styled.p`
 `
 
 const Discount = styled.p`
-  background-color: ${({theme}) => theme.colors.paleOrange};
+  background-color: ${theme.colors.paleOrange};
   border-radius: .375rem;
 
-  color: ${({theme}) => theme.colors.orange};
+  color: ${theme.colors.orange};
   font-size: 1rem;
   font-weight: 700;
   letter-spacing: .025rem;
@@ -53,7 +54,7 @@ const Discount = styled.p`
 `
 
 const PriceWithoutDiscount = styled.p`
-  color: ${({theme}) => theme.colors.grayishBlue};
+  color: ${theme.colors.grayishBlue};
   font-size: 1rem;
   font-weight: 700;
   letter-spacing: .022rem;
@@ -80,7 +81,7 @@ const QuantityContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   
-  background-color: ${({theme}) => theme.colors.lightGrayishBlue};
+  background-color: ${theme.colors.lightGrayishBlue};
   border-radius: .5rem;
   box-sizing: border-box;
 
@@ -124,7 +125,7 @@ const QuantityButton = styled.button`
 `;
 
 const QuantityValue = styled.span`
-  color: ${({theme}) => theme.colors.veryDarkBlue};
+  color: ${theme.colors.veryDarkBlue};
   font-size: 1rem;
   font-weight: 700;
   line-height: normal;

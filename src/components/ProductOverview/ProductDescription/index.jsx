@@ -1,7 +1,8 @@
 import styled from "styled-components"
+import theme from "../../../theme"
 
 const CompanyName = styled.h3`
-  color: ${({theme}) => theme.colors.orange};
+  color: ${theme.colors.orange};
   font-size: .75rem;
   font-weight: 700;
   letter-spacing: .1013rem;
@@ -21,7 +22,7 @@ const CompanyName = styled.h3`
 `
 
 const ProductName = styled.h2`
-  color: ${({theme}) => theme.colors.veryDarkBlue};
+  color: ${theme.colors.veryDarkBlue};
   font-size: 1.75rem;
   font-weight: 700;
   text-transform: capitalize;
@@ -44,7 +45,7 @@ const ProductName = styled.h2`
 `
 
 const Description = styled.p`
-  color: ${({theme}) => theme.colors.darkGrayishBlue};
+  color: ${theme.colors.darkGrayishBlue};
   font-size: 15px;
   letter-spacing: -0.004rem;
   line-height: normal;

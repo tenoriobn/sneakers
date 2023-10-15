@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import theme from "../../theme"
 
 const StylizedButton = styled.button`
   display: flex;
@@ -7,7 +8,7 @@ const StylizedButton = styled.button`
 
   gap: .875rem;
 
-  background-color: ${({theme}) => theme.colors.orange};
+  background-color: ${theme.colors.orange};
   border: none;
   border-radius: .5rem;
   box-shadow: ${({ $boxShadow }) => $boxShadow ? '0px 14px 14px 4px #FDE3CC' : 'none'};
@@ -16,7 +17,7 @@ const StylizedButton = styled.button`
 
   cursor: pointer;
 
-  color: ${({theme}) => theme.colors.white};
+  color: ${theme.colors.white};
   font-size: 1rem;
   font-weight: 700;
   letter-spacing: .022rem;
