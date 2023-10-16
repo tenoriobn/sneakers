@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import logo from './logo.svg';
+import LogoComponente from './logo.svg?react'; {/* Svg componente */}
 import avatar from './image-avatar.png';
 import menu from './icon-menu.svg';
 import cart from './icon-cart.svg';
@@ -67,8 +67,12 @@ export const Icon = styled.span`
   width: ${props => props.$width || '1rem'};
 `;
 
-const Logo = styled.img`
+const Logo = styled(LogoComponente)`
   cursor: pointer;
+
+  &:hover path {
+    fill: ${theme.colors.orange};
+  }
 `
 
 const Avatar = styled.img`
@@ -113,7 +117,7 @@ export default function Header() {
               <Icon $icon={menu} $width="1rem" $height="1rem" />
             </OpenAndCloseIcon>
 
-            <Logo src={logo} alt="sneaker logo" />{/*Ao passar mouse sobre logo muda para a cor orange*/}
+            <Logo />{/*Ao passar mouse sobre logo muda para a cor orange*/}
           </Container>
 
           <MenuItems isOpen={isMenuOpen} toggleMenu={toggleMenu} />
