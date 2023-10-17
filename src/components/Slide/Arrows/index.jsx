@@ -32,14 +32,24 @@ const IconBackground = styled.div`
   height: 2.5rem;
 `
 
+const StylizedIconPrevious = styled(Previous)`
+  width: 9px;
+  height: 14px;
+`
+
+const StylizedIconNext = styled(Next)`
+  width: 9px;
+  height: 14px;
+`
+
 export default function Arrows({ nextImage, previousImage }) {
   return (
     <SlideIconContainer>
       <IconBackground onClick={previousImage}>
-        <Previous />
+        <StylizedIconPrevious />
       </IconBackground>
       <IconBackground onClick={nextImage}>
-        <Next />
+        <StylizedIconNext />
       </IconBackground>
     </SlideIconContainer>
   )

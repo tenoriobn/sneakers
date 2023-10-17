@@ -124,8 +124,11 @@ const QuantityValue = styled.span`
 `;
 
 const StylizedCartIcon = styled(CartIcon)`
+    width: 18px;
+    height: 16px;
   path {
     fill: ${theme.colors.white};
+
   }
 `
 

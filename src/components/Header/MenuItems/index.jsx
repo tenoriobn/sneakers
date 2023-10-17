@@ -105,13 +105,18 @@ const Item = styled.a`
   }
 `;
 
+const StylizedCloseIcon = styled(Close)`
+    width: 16px;
+    height: 16px;
+`
+
 export default function MenuItems({ isOpen, toggleMenu }) {
   return (
     <>
     <BlurredBackground $isOpen={isOpen} onClick={toggleMenu} />
       <SideMenu $isOpen={isOpen}>
         <MobileMenuButton onClick={toggleMenu}>
-          <Close />
+          <StylizedCloseIcon />
         </MobileMenuButton>
 
         <ItemList>
