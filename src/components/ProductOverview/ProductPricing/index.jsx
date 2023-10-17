@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import increase from "./icon-increase.svg"
-import decrease from "./icon-decrease.svg"
-import cart from "./icon-cart.svg"
+import Increase from "./icon-increase.svg?react"
+import Decrease from "./icon-decrease.svg?react"
+import CartIcon from "./icon-cart.svg?react"
 import { useState } from "react";
 import Button from "../../Button";
 import theme from "@/theme";
@@ -103,19 +103,10 @@ const QuantityContainer = styled.div`
 `
 
 const QuantityButton = styled.button`
-  display: block;
-
+  display: flex;
   background-color: transparent;
-  background-image: url(${props => props.$icon});
-  background-position: center;
-  background-repeat: no-repeat;
-
   border: none;
-
   cursor: pointer;
-
-  height: ${props => props.$height || '1rem'};
-  width: ${props => props.$width || '1rem'};
 
   transition: opacity .3s ease-in-out;
 
@@ -132,20 +123,10 @@ const QuantityValue = styled.span`
   letter-spacing: .025rem;
 `;
 
-const ButtonIcon = styled.span`
-display: block;
-
-background-image: url(${props => props.$icon});
-background-position: center;
-background-repeat: no-repeat;
-background-size: cover;
-
-border: none;
-
-cursor: pointer;
-
-height: ${props => props.$height || '1rem'};
-width: ${props => props.$width || '1rem'};
+const StylizedCartIcon = styled(CartIcon)`
+  path {
+    fill: ${theme.colors.white};
+  }
 `
 
 export default function ProductPricing({ productData }) {
@@ -173,26 +154,17 @@ export default function ProductPricing({ productData }) {
 
       <QuantityControlPanel>
         <QuantityContainer>
-          <QuantityButton 
-            $icon={decrease} 
-            $width="0.875rem" 
-            $height="0.375rem"
-            onClick={decreaseQuantity} 
-          />
+          <QuantityButton onClick={decreaseQuantity}>
+            <Decrease />
+          </QuantityButton>
           <QuantityValue>{quantity}</QuantityValue>
-          <QuantityButton 
-            $icon={increase} 
-            $width="0.75rem" 
-            $height="0.75rem"
-            onClick={increaseQuantity} 
-          />
+          <QuantityButton onClick={increaseQuantity}>
+            <Increase />
+          </QuantityButton>
         </QuantityContainer>
+        
         <Button $margin="1rem" $width="272px" $boxShadow={true}>
-          <ButtonIcon 
-            $icon={cart} 
-            $width="1.125rem" 
-            $height="1rem"
-          />
+          <StylizedCartIcon />
           Add to cart
         </Button>
       </QuantityControlPanel>

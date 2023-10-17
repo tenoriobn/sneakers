@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import LogoComponente from './logo.svg?react'; {/* Svg componente */}
+import StylizedLogo from './logo.svg?react'; {/* Svg componente */}
 import avatar from './image-avatar.png';
-import menu from './icon-menu.svg';
-import cart from './icon-cart.svg';
+import MenuIcon from './icon-menu.svg?react';
+import CartIcon from './icon-cart.svg?react';
 import MenuItems from './MenuItems';
 import { useState } from 'react';
 import Cart from '../Cart';
@@ -39,16 +39,26 @@ const Container = styled.div`
   }
 `;
 
-const Button = styled.button`
+export const StylizedButton = styled.button`
   background-color: transparent;
   border: none;
-
   cursor: pointer;
-
+  display: flex;
+  margin: 0;
   padding: 0;
 `;
 
-export const OpenAndCloseIcon = styled(Button)`
+const StylizedCartIcon = styled(CartIcon)`
+  path {
+    fill: ${theme.colors.darkGrayishBlue};
+
+    &:hover {
+      fill: ${theme.colors.veryDarkBlue};
+    }
+  }
+`
+
+export const MobileMenuButton = styled(StylizedButton)`
   @media (min-width: 992px) {
     display: none;
   }
@@ -67,7 +77,7 @@ export const Icon = styled.span`
   width: ${props => props.$width || '1rem'};
 `;
 
-const Logo = styled(LogoComponente)`
+const Logo = styled(StylizedLogo)`
   cursor: pointer;
 
   &:hover path {
@@ -113,20 +123,20 @@ export default function Header() {
       <Nav>
         <Container $gapDesktop="3.5rem">
           <Container $gapMobile="1rem">
-            <OpenAndCloseIcon className="menu-button" onClick={toggleMenu}>
-              <Icon $icon={menu} $width="1rem" $height="1rem" />
-            </OpenAndCloseIcon>
+            <MobileMenuButton  onClick={toggleMenu}>
+              <MenuIcon />
+            </MobileMenuButton>
 
-            <Logo />{/*Ao passar mouse sobre logo muda para a cor orange*/}
+            <Logo />
           </Container>
 
           <MenuItems isOpen={isMenuOpen} toggleMenu={toggleMenu} />
         </Container>
 
         <Container $gapMobile="1.375rem" $gapDesktop="2.875rem">
-          <Button onClick={toggleCart}>
-            <Icon $icon={cart} $width="1.375rem" $height="1.25rem" />
-          </Button>
+          <StylizedButton onClick={toggleCart}>
+            <StylizedCartIcon />
+          </StylizedButton>
 
           {isCartOpen && <Cart />} {/* Ao clicar fora do cart ele também deve fechar */}
 

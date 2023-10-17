@@ -1,7 +1,8 @@
 import styled from "styled-components";
-import { Icon, OpenAndCloseIcon } from "..";
-import close from './icon-close.svg';
+import { MobileMenuButton } from "..";
+import Close from './icon-close.svg?react';
 import theme from "@/theme";
+import menuItems from "@/data/menu.json";
 
 const BlurredBackground = styled.div`
   background-color: #00000081;
@@ -109,16 +110,15 @@ export default function MenuItems({ isOpen, toggleMenu }) {
     <>
     <BlurredBackground $isOpen={isOpen} onClick={toggleMenu} />
       <SideMenu $isOpen={isOpen}>
-        <OpenAndCloseIcon onClick={toggleMenu}>
-          <Icon $icon={close} $width="0.84rem" $height="0.84rem" />
-        </OpenAndCloseIcon>
+        <MobileMenuButton onClick={toggleMenu}>
+          <Close />
+        </MobileMenuButton>
 
         <ItemList>
-          <li><Item href="#">Collections</Item></li>
-          <li><Item href="#">Men</Item></li>
-          <li><Item href="#">Women</Item></li>
-          <li><Item href="#">About</Item></li>
-          <li><Item href="#">Contact</Item></li>
+          {menuItems.map((items, index) => (
+            <li key={index}><Item href="#">{items.menuItem}</Item></li>
+          ))}
+
         </ItemList>
       </SideMenu>
     </>

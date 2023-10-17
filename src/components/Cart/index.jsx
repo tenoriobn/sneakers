@@ -1,8 +1,9 @@
 import product from './image-product-1-thumbnail.jpg';
-import deleteIcon from './icon-delete.svg';
+import DeleteIcon from './icon-delete.svg?react';
 import styled from 'styled-components';
 import Button from '../Button';
 import theme from '@/theme';
+import { StylizedButton } from '../Header';
 
 const CartContainer = styled.div`
   background-color: ${theme.colors.white};
@@ -106,19 +107,6 @@ const ProductValue = styled.p`
   }
 `
 
-const DeleteIcon = styled.button`
-  background: none;
-  border: none;
-  cursor: pointer;
-
-  padding: 0;
-
-  img {
-    width: 14px;
-    height: 16px;
-  }
-`
-
 export default function Cart() {
   return (
     <CartContainer>
@@ -136,7 +124,10 @@ export default function Cart() {
               </ProductInfoContainer>
             </ProductContainer>
 
-            <DeleteIcon><img src={deleteIcon} /></DeleteIcon>
+            <StylizedButton>
+              <DeleteIcon />
+            </StylizedButton>
+
           </ItemContainer>
         </li>
 

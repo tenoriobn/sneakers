@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import next from './icon-next.svg';
-import previous from './icon-previous.svg';
+import Next from './icon-next.svg?react';
+import Previous from './icon-previous.svg?react';
 import theme from '@/theme'
 
 const SlideIconContainer = styled.div`
@@ -32,27 +32,14 @@ const IconBackground = styled.div`
   height: 2.5rem;
 `
 
-const IconNext = styled.span`
-  display: block;
-  background-image: url(${props => props.$slideIcon});
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-
-  cursor: pointer;
-
-  height: .875rem;
-  width: .5rem;
-`
-
 export default function Arrows({ nextImage, previousImage }) {
   return (
     <SlideIconContainer>
       <IconBackground onClick={previousImage}>
-        <IconNext $slideIcon={previous}></IconNext>
+        <Previous />
       </IconBackground>
       <IconBackground onClick={nextImage}>
-        <IconNext $slideIcon={next}></IconNext>
+        <Next />
       </IconBackground>
     </SlideIconContainer>
   )
