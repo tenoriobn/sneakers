@@ -1,12 +1,12 @@
 import styled from "styled-components";
-import Increase from "./icon-increase.svg?react"
-import Decrease from "./icon-decrease.svg?react"
+import IconIncrease from "./icon-increase.svg?react"
+import IconDecrease from "./icon-decrease.svg?react"
 import CartIcon from "./icon-cart.svg?react"
 import { useState } from "react";
 import Button from "../../Button";
 import theme from "@/theme";
 
-const ProductPricingContainer = styled.div`
+const StylizedProductPricingContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -20,13 +20,13 @@ const ProductPricingContainer = styled.div`
   }
 `
 
-const ProductPricingWrapper = styled.div`
+const StylizedProductPricingWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 1rem;
 `
 
-const ProductValue = styled.p`
+const StylizedProductValue = styled.p`
   color: ${theme.colors.veryDarkBlue};
   font-size: 1.75rem;
   font-weight: 700;
@@ -37,7 +37,7 @@ const ProductValue = styled.p`
   }
 `
 
-const Discount = styled.p`
+const StylizedDiscount = styled.p`
   background-color: ${theme.colors.paleOrange};
   border-radius: .375rem;
 
@@ -53,7 +53,7 @@ const Discount = styled.p`
   }
 `
 
-const PriceWithoutDiscount = styled.p`
+const StylizedPriceWithoutDiscount = styled.p`
   color: ${theme.colors.grayishBlue};
   font-size: 1rem;
   font-weight: 700;
@@ -67,7 +67,7 @@ const PriceWithoutDiscount = styled.p`
   }
 `
 
-const QuantityControlPanel = styled.div`
+const StylizedQuantityControlPanel = styled.div`
   @media (min-width: 992px) {
     display: flex;
     gap: 1rem;
@@ -76,7 +76,7 @@ const QuantityControlPanel = styled.div`
   }
 `
 
-const QuantityContainer = styled.div`
+const StylizedQuantityContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -102,7 +102,7 @@ const QuantityContainer = styled.div`
   }
 `
 
-const QuantityButton = styled.button`
+const StylizedQuantityButton = styled.button`
   display: flex;
   background-color: transparent;
   border: none;
@@ -147,30 +147,30 @@ export default function ProductPricing({ productData }) {
 
   return (
     <>
-      <ProductPricingContainer>
-        <ProductPricingWrapper>
-          <ProductValue>{productData.productValue}</ProductValue> {/* Preço */}
-          <Discount>{productData.discount}</Discount> {/* Porcentagem de desconto */}
-        </ProductPricingWrapper>
-        <PriceWithoutDiscount>{productData.priceWithoutDiscount}</PriceWithoutDiscount> {/* Preço anterior sem desconto */}
-      </ProductPricingContainer>
+      <StylizedProductPricingContainer>
+        <StylizedProductPricingWrapper>
+          <StylizedProductValue>{productData.productValue}</StylizedProductValue> {/* Preço */}
+          <StylizedDiscount>{productData.discount}</StylizedDiscount> {/* Porcentagem de desconto */}
+        </StylizedProductPricingWrapper>
+        <StylizedPriceWithoutDiscount>{productData.priceWithoutDiscount}</StylizedPriceWithoutDiscount> {/* Preço anterior sem desconto */}
+      </StylizedProductPricingContainer>
 
-      <QuantityControlPanel>
-        <QuantityContainer>
-          <QuantityButton onClick={decreaseQuantity}>
-            <Decrease />
-          </QuantityButton>
+      <StylizedQuantityControlPanel>
+        <StylizedQuantityContainer>
+          <StylizedQuantityButton onClick={decreaseQuantity}>
+            <IconDecrease />
+          </StylizedQuantityButton>
           <QuantityValue>{quantity}</QuantityValue>
-          <QuantityButton onClick={increaseQuantity}>
-            <Increase />
-          </QuantityButton>
-        </QuantityContainer>
+          <StylizedQuantityButton onClick={increaseQuantity}>
+            <IconIncrease />
+          </StylizedQuantityButton>
+        </StylizedQuantityContainer>
         
         <Button $margin="1rem" $width="272px" $boxShadow={true}>
           <StylizedCartIcon />
           Add to cart
         </Button>
-      </QuantityControlPanel>
+      </StylizedQuantityControlPanel>
     </>
   )
 }

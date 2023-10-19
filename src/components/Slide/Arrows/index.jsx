@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import Next from './icon-next.svg?react';
-import Previous from './icon-previous.svg?react';
+import IconNext from './icon-next.svg?react';
+import IconPrevious from './icon-previous.svg?react';
 import theme from '@/theme'
 
-const SlideIconContainer = styled.div`
+const StylizedSlideIconContainer = styled.div`
   display: flex;
   justify-content: space-between;
 
@@ -18,7 +18,7 @@ const SlideIconContainer = styled.div`
   }
 `
 
-const IconBackground = styled.div`
+const StylizedIconBackground = styled.div`
   background-color: ${theme.colors.white};
   border-radius: 50%;
 
@@ -30,27 +30,22 @@ const IconBackground = styled.div`
 
   width: 2.5rem;
   height: 2.5rem;
-`
 
-const StylizedIconPrevious = styled(Previous)`
-  width: 9px;
-  height: 14px;
-`
-
-const StylizedIconNext = styled(Next)`
-  width: 9px;
-  height: 14px;
+  .icon__previous, .icon__next {
+    width: 9px;
+    height: 14px;
+  }
 `
 
 export default function Arrows({ nextImage, previousImage }) {
   return (
-    <SlideIconContainer>
-      <IconBackground onClick={previousImage}>
-        <StylizedIconPrevious />
-      </IconBackground>
-      <IconBackground onClick={nextImage}>
-        <StylizedIconNext />
-      </IconBackground>
-    </SlideIconContainer>
+    <StylizedSlideIconContainer>
+      <StylizedIconBackground onClick={previousImage}>
+        <IconPrevious className="icon__previous" />
+      </StylizedIconBackground>
+      <StylizedIconBackground onClick={nextImage}>
+        <IconNext className="icon__next" />
+      </StylizedIconBackground>
+    </StylizedSlideIconContainer>
   )
 }

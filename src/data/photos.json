@@ -2,21 +2,25 @@
   {
     "productImagePath": "./images/image-product-1.jpg",
     "thumbnailPath": "./images/image-product-1-thumbnail.jpg",
+    "description": "Snickers photo",
     "id": "1"
   },
   {
     "productImagePath": "./images/image-product-2.jpg",
     "thumbnailPath": "./images/image-product-2-thumbnail.jpg",
+    "description": "Snickers photo",
     "id": "2"
   },
   {
     "productImagePath": "./images/image-product-3.jpg",
     "thumbnailPath": "./images/image-product-3-thumbnail.jpg",
+    "description": "Snickers photo",
     "id": "3"
   },
   {
     "productImagePath": "./images/image-product-4.jpg",
     "thumbnailPath": "./images/image-product-4-thumbnail.jpg",
+    "description": "Snickers photo",
     "id": "4"
   }
 ]

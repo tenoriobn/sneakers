@@ -4,7 +4,7 @@ import GlobalStyles from "../GlobalStyles";
 import theme from '@/theme';
 import { Outlet } from "react-router-dom";
 
-const Main = styled.main`
+const StylizedMain = styled.main`
 
   @media (min-width: 768px) {
     display: flex;
@@ -16,7 +16,6 @@ const Main = styled.main`
     flex-direction: row;
     justify-content: space-between;
     gap: 3rem;
-
 
     margin-top: 5.75rem;
     padding: 0 3rem;
@@ -35,9 +34,9 @@ export default function DefaultPage() {
 
       <GlobalStyles />
       <Header />
-      <Main>
+      <StylizedMain>
         <Outlet />
-      </Main>
+      </StylizedMain>
 
     </ThemeProvider>
   )

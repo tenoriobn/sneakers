@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 
-const ListaOfImages = styled.ul`
+const StylizedImageList = styled.ul`
   display: none;
-
 
   @media (min-width: 992px) {
     display: flex;
@@ -35,13 +34,13 @@ export default function Thumbnail({ slidePhotos }) {
 
   return (
     <div>
-      <ListaOfImages>
+      <StylizedImageList>
         {slidePhotos.map((thumbnail) => (
           <li key={thumbnail.id}>
-            <StylizedThumbnail src={thumbnail.thumbnailPath} alt="" />
+            <StylizedThumbnail src={thumbnail.thumbnailPath} alt={thumbnail.description} />
           </li>
         ))}
-      </ListaOfImages>
+      </StylizedImageList>
     </div>
   )
 }

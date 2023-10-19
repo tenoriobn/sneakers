@@ -1,10 +1,8 @@
 import styled from "styled-components";
-import { MobileMenuButton } from "..";
-import Close from './icon-close.svg?react';
 import theme from "@/theme";
 import menuItems from "@/data/menu.json";
 
-const BlurredBackground = styled.div`
+const StylizedBlurredBackground = styled.div`
   background-color: #00000081;
 
   position: fixed;
@@ -16,7 +14,7 @@ const BlurredBackground = styled.div`
   width: 100%;
 `
 
-const SideMenu = styled.div`
+const StylizedSideMenu = styled.div`
   background-color: ${theme.colors.white};
   box-sizing: border-box;
   
@@ -44,7 +42,7 @@ const SideMenu = styled.div`
   }
 `;
 
-const ItemList = styled.ul`
+const StylizedItemList = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -62,7 +60,7 @@ const ItemList = styled.ul`
   }
 `;
 
-const Item = styled.a`
+const StylizedItem = styled.a`
   color: ${theme.colors.veryDarkBlue};
   font-size: 1.125rem;
   font-weight: 700;
@@ -105,27 +103,20 @@ const Item = styled.a`
   }
 `;
 
-const StylizedCloseIcon = styled(Close)`
-    width: 16px;
-    height: 16px;
-`
-
-export default function MenuItems({ isOpen, toggleMenu }) {
+export default function MenuItems({ isMenuOpen }) {
   return (
     <>
-    <BlurredBackground $isOpen={isOpen} onClick={toggleMenu} />
-      <SideMenu $isOpen={isOpen}>
-        <MobileMenuButton onClick={toggleMenu}>
-          <StylizedCloseIcon />
-        </MobileMenuButton>
-
-        <ItemList>
-          {menuItems.map((items, index) => (
-            <li key={index}><Item href="#">{items.menuItem}</Item></li>
+    <StylizedBlurredBackground $isOpen={isMenuOpen} />
+      <StylizedSideMenu $isOpen={isMenuOpen}>
+        <StylizedItemList>
+          {menuItems.map((item) => (
+            <li key={item.id}>
+              <StylizedItem href="#">{item.menuItem}</StylizedItem>
+            </li>
           ))}
 
-        </ItemList>
-      </SideMenu>
+        </StylizedItemList>
+      </StylizedSideMenu>
     </>
   )
 }

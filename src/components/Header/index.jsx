@@ -1,8 +1,9 @@
 import styled from 'styled-components';
-import StylizedLogo from './logo.svg?react'; {/* Svg componente */}
-import avatar from './image-avatar.png';
-import MenuIcon from './icon-menu.svg?react';
+import Logo from './logo.svg?react'; {/* Svg componente */}
+import avatarIcon from './image-avatar.png';
+import CloseIcon from './icon-close.svg?react';
 import CartIcon from './icon-cart.svg?react';
+import MenuIcon from './icon-menu.svg?react';
 import MenuItems from './MenuItems';
 import { useState } from 'react';
 import Cart from '../Cart';
@@ -21,13 +22,13 @@ const StylizedHeader = styled.header`
   }
 `
 
-const Nav = styled.nav`
+const StylizedNav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
 `;
 
-const Container = styled.div`
+const StylizedContainer = styled.div`
   display: flex;
   align-items: center;
   gap: ${props => props.$gapMobile || '0'};
@@ -58,26 +59,15 @@ const StylizedCartIcon = styled(CartIcon)`
   }
 `
 
-export const MobileMenuButton = styled(StylizedButton)`
+export const StylizedMobileMenu = styled(StylizedButton)`
+  z-index: 2;
+
   @media (min-width: 992px) {
     display: none;
   }
 `;
 
-export const Icon = styled.span`
-  display: block;
-
-  background-image: url(${props => props.$icon});
-  background-position: center;
-  background-repeat: no-repeat;
-
-  cursor: pointer;
-  
-  height: ${props => props.$height || '1rem'};
-  width: ${props => props.$width || '1rem'};
-`;
-
-const Logo = styled(StylizedLogo)`
+const StylizedLogo = styled(Logo)`
   cursor: pointer;
 
   &:hover path {
@@ -85,7 +75,7 @@ const Logo = styled(StylizedLogo)`
   }
 `
 
-const Avatar = styled.img`
+const StylizedAvatar = styled.img`
   border: 2px solid transparent;
   border-radius: 50%;
 
@@ -120,29 +110,29 @@ export default function Header() {
 
   return (
     <StylizedHeader>
-      <Nav>
-        <Container $gapDesktop="3.5rem">
-          <Container $gapMobile="1rem">
-            <MobileMenuButton  onClick={toggleMenu}>
-              <MenuIcon />
-            </MobileMenuButton>
+      <StylizedNav>
+        <StylizedContainer $gapDesktop="3.5rem">
+          <StylizedContainer $gapMobile="1rem">
+            <StylizedMobileMenu onClick={toggleMenu}>
+              {!isMenuOpen ? <MenuIcon /> : <CloseIcon />}
+            </StylizedMobileMenu>
 
-            <Logo />
-          </Container>
+            <StylizedLogo />
+          </StylizedContainer>
 
-          <MenuItems isOpen={isMenuOpen} toggleMenu={toggleMenu} />
-        </Container>
+          <MenuItems isMenuOpen={isMenuOpen} />
+        </StylizedContainer>
 
-        <Container $gapMobile="1.375rem" $gapDesktop="2.875rem">
+        <StylizedContainer $gapMobile="1.375rem" $gapDesktop="2.875rem">
           <StylizedButton onClick={toggleCart}>
             <StylizedCartIcon />
           </StylizedButton>
 
           {isCartOpen && <Cart />} {/* Ao clicar fora do cart ele também deve fechar */}
 
-          <Avatar src={avatar} alt="profile picture" />
-        </Container>
-      </Nav>
+          <StylizedAvatar src={avatarIcon} alt="profile picture" />
+        </StylizedContainer>
+      </StylizedNav>
     </StylizedHeader>
   )
 }

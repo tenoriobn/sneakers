@@ -3,7 +3,7 @@ import Arrows from './Arrows';
 import { useState } from 'react';
 import Thumbnail from '../Thumbnail';
 
-const SlideContainer = styled.section`
+const StylizedSlideContainer = styled.section`
   position: relative;
 
   width: 100%;
@@ -17,7 +17,7 @@ const SlideContainer = styled.section`
   }
 `
 
-const ProductImage = styled.img`
+const StylizedProductImage = styled.img`
   cursor: pointer;
   object-fit: cover;
   object-position: center center;
@@ -64,16 +64,16 @@ export default function Slide({ slidePhotos = []}) {
   }
 
   return (
-    <SlideContainer>
-      <ProductImage 
+    <StylizedSlideContainer>
+      <StylizedProductImage 
         src={slidePhotos[currentImageIndex].productImagePath} 
-        alt="Product photo" 
+        alt={slidePhotos[currentImageIndex].description} 
         style={{ opacity: imageOpacity }}
       />
       <Arrows nextImage={nextImage} previousImage={previousImage} />
       <Thumbnail 
         slidePhotos={slidePhotos} 
       />
-    </SlideContainer>
+    </StylizedSlideContainer>
   )
 }

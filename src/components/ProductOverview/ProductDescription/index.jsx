@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import theme from "@/theme"
 
-const CompanyName = styled.h3`
+const StylizedCompanyName = styled.h3`
   color: ${theme.colors.orange};
   font-size: .75rem;
   font-weight: 700;
@@ -21,7 +21,7 @@ const CompanyName = styled.h3`
   }
 `
 
-const ProductName = styled.h2`
+const StylizedProductName = styled.h2`
   color: ${theme.colors.veryDarkBlue};
   font-size: 1.75rem;
   font-weight: 700;
@@ -44,7 +44,7 @@ const ProductName = styled.h2`
   }
 `
 
-const Description = styled.p`
+const StylizedDescription = styled.p`
   color: ${theme.colors.darkGrayishBlue};
   font-size: 15px;
   letter-spacing: -0.004rem;
@@ -65,9 +65,9 @@ const Description = styled.p`
 export default function ProductDescription({ productData }) {
   return (
     <>
-      <CompanyName>{productData.companyName}</CompanyName>
-      <ProductName>{productData.productName}</ProductName>
-      <Description>{productData.description}</Description>
+      <StylizedCompanyName>{productData.companyName}</StylizedCompanyName>
+      <StylizedProductName>{productData.productName}</StylizedProductName>
+      <StylizedDescription>{productData.description}</StylizedDescription>
     </>
   )
 }

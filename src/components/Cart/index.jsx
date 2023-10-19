@@ -5,7 +5,7 @@ import Button from '../Button';
 import theme from '@/theme';
 import { StylizedButton } from '../Header';
 
-const CartContainer = styled.div`
+const StylizedCartContainer = styled.div`
   background-color: ${theme.colors.white};
   border-radius: .5rem;
   box-shadow: 0px 14px 50px -24px #1d2025;
@@ -41,7 +41,7 @@ const CartContainer = styled.div`
   transition: opacity 3s ease-in-out;
 `
 
-const CartTitle = styled.h2`
+const StylizedCartTitle = styled.h2`
   color: ${theme.colors.veryDarkBlue};
   font-size: 1rem;
   font-weight: 700;
@@ -50,7 +50,7 @@ const CartTitle = styled.h2`
   padding: 0 1.5rem 1.75rem 1.5rem;
 `
 
-const ProductList = styled.ul`
+const StylizedProductList = styled.ul`
   display: flex;
   flex-direction: column;
 
@@ -60,7 +60,7 @@ const ProductList = styled.ul`
   padding: 1.5rem 1.5rem 0 1.5rem;
 `
 
-const ItemContainer = styled.div`
+const StylizedItemContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -68,20 +68,20 @@ const ItemContainer = styled.div`
   margin-bottom: 1.625rem;
 `
 
-const ProductContainer = styled.div `
+const StylizedProductContainer = styled.div `
   display: flex;
   align-items: center;
   gap: 1rem;
 `
 
-const ProductImage = styled.img`
+const StylizedProductImage = styled.img`
   border-radius: .25rem;
 
   height: 50px;
   width: 50px;
 `
 
-const ProductInfoContainer = styled.div`
+const StylizedProductInfoContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: .375rem;
@@ -89,7 +89,7 @@ const ProductInfoContainer = styled.div`
   align-items: flex-start;
 `
 
-const ProductName = styled.p`
+const StylizedProductName = styled.p`
   color: ${theme.colors.darkGrayishBlue};
   font-size: 1rem;
   font-weight: 500;
@@ -109,31 +109,31 @@ const ProductValue = styled.p`
 
 export default function Cart() {
   return (
-    <CartContainer>
-      <CartTitle>Cart</CartTitle>
+    <StylizedCartContainer>
+      <StylizedCartTitle>Cart</StylizedCartTitle>
 
-      <ProductList>
+      <StylizedProductList>
         <li>
-          <ItemContainer>
-            <ProductContainer>
-              <ProductImage src={product} alt="Product image" />
+          <StylizedItemContainer>
+            <StylizedProductContainer>
+              <StylizedProductImage src={product} alt="Product image" />
 
-              <ProductInfoContainer>
-                <ProductName>Fall Limited Edition Sneakers</ProductName>
+              <StylizedProductInfoContainer>
+                <StylizedProductName>Fall Limited Edition Sneakers</StylizedProductName>
                 <ProductValue>$125 x 3 <span>$375.00</span></ProductValue>
-              </ProductInfoContainer>
-            </ProductContainer>
+              </StylizedProductInfoContainer>
+            </StylizedProductContainer>
 
             <StylizedButton>
               <DeleteIcon />
             </StylizedButton>
 
-          </ItemContainer>
+          </StylizedItemContainer>
         </li>
 
         <Button>Checkout</Button>
-      </ProductList>
-    </CartContainer>
+      </StylizedProductList>
+    </StylizedCartContainer>
   )
 }
 
@@ -142,7 +142,7 @@ export default function Cart() {
 
   Utilizar esse componente no lugar certo
 
-  - Aqui vai pegar via status os dados dinamicamente para preencher `ProductName` e `ProductValue`
+  - Aqui vai pegar via status os dados dinamicamente para preencher `StylizedProductName` e `ProductValue`
   sendo que se for selecionado mais de 3 produtos, deve mostrar o valor de cada item e o valor
   multiplicado pela quantidade.
 
