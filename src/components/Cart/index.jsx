@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Button from '../Button';
 import theme from '@/theme';
 import { StylizedButton } from '../Header';
+import { Link } from 'react-router-dom';
 
 const StylizedCartContainer = styled.div`
   background-color: ${theme.colors.white};
@@ -76,6 +77,7 @@ const StylizedProductContainer = styled.div `
 
 const StylizedProductImage = styled.img`
   border-radius: .25rem;
+  cursor: pointer;
 
   height: 50px;
   width: 50px;
@@ -107,6 +109,18 @@ const ProductValue = styled.p`
   }
 `
 
+const StylizedIconDelete = styled(DeleteIcon)`
+  transition: opacity .3s ease-in-out;
+
+  &:hover {
+    opacity: .5;
+  }
+`
+
+const StylizedLink = styled(Link)`
+  display: flex;
+`
+
 export default function Cart() {
   return (
     <StylizedCartContainer>
@@ -116,7 +130,9 @@ export default function Cart() {
         <li>
           <StylizedItemContainer>
             <StylizedProductContainer>
-              <StylizedProductImage src={product} alt="Product image" />
+              <StylizedLink to={'/'}>
+                <StylizedProductImage src={product} alt="Product image" />
+              </StylizedLink>
 
               <StylizedProductInfoContainer>
                 <StylizedProductName>Fall Limited Edition Sneakers</StylizedProductName>
@@ -125,7 +141,7 @@ export default function Cart() {
             </StylizedProductContainer>
 
             <StylizedButton>
-              <DeleteIcon />
+              <StylizedIconDelete />
             </StylizedButton>
 
           </StylizedItemContainer>

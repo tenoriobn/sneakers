@@ -69,6 +69,8 @@ const StylizedLink = styled(Link)`
 
   margin-top: 2rem;
 
+  transition: all .3s ease-in-out;
+
   path {
       stroke: ${theme.colors.orange};
   }

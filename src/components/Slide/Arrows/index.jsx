@@ -34,6 +34,12 @@ const StylizedIconBackground = styled.div`
   .icon__previous, .icon__next {
     width: 9px;
     height: 14px;
+
+    &:hover {
+      path {
+        stroke: ${theme.colors.orange};
+      }
+    }
   }
 `
 
