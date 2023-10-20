@@ -1,22 +1,27 @@
 [
   {
     "menuItem": "Collections",
+    "link": "collections",
     "id": 1
   },
   {
     "menuItem": "Men",
+    "link": "men",
     "id": 2
   },
   {
     "menuItem": "Women",
+    "link": "women",
     "id": 3
   },
   {
     "menuItem": "About",
+    "link": "about",
     "id": 4
   },
   {
     "menuItem": "Contact",
+    "link": "contact",
     "id": 5
   }
 ]

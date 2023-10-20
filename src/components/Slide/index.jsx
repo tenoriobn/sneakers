@@ -22,6 +22,8 @@ const StylizedProductImage = styled.img`
   object-fit: cover;
   object-position: center center;
 
+  transition: opacity 0.3s ease-in-out; // aplica 300ms de transição gerando o fade-out.
+
   height: 300px;
   width: 100%;
 
@@ -38,7 +40,7 @@ const StylizedProductImage = styled.img`
     width: 445px;
   }
 
-  transition: opacity 0.3s ease-in-out; // aplica 300ms de transição gerando o fade-out.
+  
 `
 
 export default function Slide({ slidePhotos = []}) {

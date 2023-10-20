@@ -8,6 +8,7 @@ import MenuItems from './MenuItems';
 import { useState } from 'react';
 import Cart from '../Cart';
 import theme from '@/theme';
+import { Link } from 'react-router-dom';
 
 const StylizedHeader = styled.header`
   background-color: ${theme.colors.lightGray};
@@ -15,7 +16,7 @@ const StylizedHeader = styled.header`
   padding: 1.25rem 1.5rem 1.5rem 1.5rem;
 
   @media (min-width: 992px) {
-    border-bottom: 1px solid;
+    border-bottom: .0625rem solid;
     border-color: ${theme.colors.veryLightGray};
 
     padding: 1.75rem 0 2.125rem 0;
@@ -60,7 +61,7 @@ const StylizedCartIcon = styled(CartIcon)`
 `
 
 export const StylizedMobileMenu = styled(StylizedButton)`
-  z-index: 2;
+  z-index: 4;
 
   @media (min-width: 992px) {
     display: none;
@@ -117,7 +118,7 @@ export default function Header() {
               {!isMenuOpen ? <MenuIcon /> : <CloseIcon />}
             </StylizedMobileMenu>
 
-            <StylizedLogo />
+            <Link to={"/"}><StylizedLogo /></Link>
           </StylizedContainer>
 
           <MenuItems isMenuOpen={isMenuOpen} />
