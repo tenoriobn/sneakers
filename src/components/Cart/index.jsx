@@ -5,6 +5,7 @@ import Button from '../Button';
 import theme from '@/theme';
 import { StylizedButton } from '../Header';
 import { Link } from 'react-router-dom';
+import { useCartContext } from '../../context/CartContext';
 
 const StylizedCartContainer = styled.div`
   background-color: ${theme.colors.white};
@@ -122,32 +123,43 @@ const StylizedLink = styled(Link)`
 `
 
 export default function Cart() {
+  const {addToCart} = useCartContext();
+
+  console.log(addToCart)
+
   return (
     <StylizedCartContainer>
       <StylizedCartTitle>Cart</StylizedCartTitle>
 
       <StylizedProductList>
-        <li>
-          <StylizedItemContainer>
-            <StylizedProductContainer>
-              <StylizedLink to={'/'}>
-                <StylizedProductImage src={product} alt="Product image" />
-              </StylizedLink>
+        {addToCart.length === 0 || addToCart.quantity === 0 ? (
+          <p>Your cart is empty</p> ) : (  
+            <>    
+              <li>
+                <StylizedItemContainer>
+                  <StylizedProductContainer>
+                    <StylizedLink to={'/'}>
+                      <StylizedProductImage src={product} alt="Product image" />
+                    </StylizedLink>
 
-              <StylizedProductInfoContainer>
-                <StylizedProductName>Fall Limited Edition Sneakers</StylizedProductName>
-                <ProductValue>$125 x 3 <span>$375.00</span></ProductValue>
-              </StylizedProductInfoContainer>
-            </StylizedProductContainer>
+                    <StylizedProductInfoContainer>
+                      <StylizedProductName>{addToCart.productName}</StylizedProductName>
+                      <ProductValue>
+                        {addToCart.productValue} x {addToCart.quantity} <span>{addToCart.amount}</span>
+                      </ProductValue>
+                    </StylizedProductInfoContainer>
+                  </StylizedProductContainer>
 
-            <StylizedButton>
-              <StylizedIconDelete />
-            </StylizedButton>
+                  <StylizedButton>
+                    <StylizedIconDelete />
+                  </StylizedButton>
 
-          </StylizedItemContainer>
-        </li>
+                </StylizedItemContainer>
+              </li>
 
-        <Button>Checkout</Button>
+            <Button>Checkout</Button>
+          </>)
+        }
       </StylizedProductList>
     </StylizedCartContainer>
   )

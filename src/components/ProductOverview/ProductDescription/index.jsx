@@ -1,5 +1,7 @@
 import styled from "styled-components"
 import theme from "@/theme"
+import { useCartContext } from "../../../context/CartContext"
+import { useEffect } from "react"
 
 const StylizedCompanyName = styled.h3`
   color: ${theme.colors.orange};
@@ -63,6 +65,17 @@ const StylizedDescription = styled.p`
 `
 
 export default function ProductDescription({ productData }) {
+  const {addItem, setAddToCart} = useCartContext();
+
+  useEffect(() => {
+    if (addItem === true) {
+      setAddToCart((prevCart) => ({
+        ...prevCart,
+        productName: productData.productName,
+      }));
+    }
+  }, [addItem, setAddToCart, productData.productName]);
+
   return (
     <>
       <StylizedCompanyName>{productData.companyName}</StylizedCompanyName>

@@ -3,6 +3,7 @@ import Header from "../Header";
 import GlobalStyles from "../GlobalStyles";
 import theme from '@/theme';
 import { Outlet } from "react-router-dom";
+import { CartProvider } from "../../context/CartContext";
 
 const StylizedMain = styled.main`
 
@@ -31,12 +32,13 @@ const StylizedMain = styled.main`
 export default function DefaultPage() {
   return (
     <ThemeProvider theme={theme}>
-
-      <GlobalStyles />
-      <Header />
-      <StylizedMain>
-        <Outlet />
-      </StylizedMain>
+      <CartProvider>
+        <GlobalStyles />
+        <Header />
+        <StylizedMain>
+          <Outlet />
+        </StylizedMain>
+      </CartProvider>
 
     </ThemeProvider>
   )

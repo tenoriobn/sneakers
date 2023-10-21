@@ -42,12 +42,13 @@ const StylizedButton = styled.button`
   }
 `
 
-export default function Button({ $margin, $width, $boxShadow, children }) {
+export default function Button({ $margin, $width, $boxShadow, children, handleAddToCartClick }) {
   return (
     <StylizedButton 
       $margin={$margin}
       $boxShadow={$boxShadow}
       $width={$width}
+      onClick={handleAddToCartClick}
     >
       {children}
     </StylizedButton>

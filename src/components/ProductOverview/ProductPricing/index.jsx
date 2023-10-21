@@ -2,9 +2,10 @@ import styled from "styled-components";
 import IconIncrease from "./icon-increase.svg?react"
 import IconDecrease from "./icon-decrease.svg?react"
 import CartIcon from "./icon-cart.svg?react"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "../../Button";
 import theme from "@/theme";
+import { useCartContext } from "../../../context/CartContext";
 
 const StylizedProductPricingContainer = styled.div`
   display: flex;
@@ -134,6 +135,7 @@ const StylizedCartIcon = styled(CartIcon)`
 
 export default function ProductPricing({ productData }) {
   const [quantity, setQuantity] = useState(0);
+  const {addItem, setAddItem, setAddToCart} = useCartContext();
 
   const increaseQuantity = () => {
     setQuantity(quantity + 1);
@@ -144,6 +146,26 @@ export default function ProductPricing({ productData }) {
       setQuantity(quantity - 1);
     }
   };
+
+  const handleAddToCartClick = () => {
+    setAddItem(!addItem);
+  }
+
+  useEffect(() => {
+    if (addItem === true) {
+      setAddItem(!addItem);
+      
+      const calculatedAmount = parseFloat(productData.productValue.replace(/[^0-9.]/g, '')) * quantity;
+      const formattedAmount = '$' + calculatedAmount.toFixed(2);
+
+      setAddToCart((prevCart) => ({
+        ...prevCart,
+        quantity: quantity,
+        productValue: productData.productValue,
+        amount: formattedAmount,
+      }));
+    }
+  }, [setAddItem, addItem, setAddToCart, quantity, productData.productValue])
 
   return (
     <>
@@ -166,7 +188,12 @@ export default function ProductPricing({ productData }) {
           </StylizedQuantityButton>
         </StylizedQuantityContainer>
         
-        <Button $margin="1rem" $width="272px" $boxShadow={true}>
+        <Button 
+          $margin="1rem" 
+          $width="272px" 
+          $boxShadow={true}
+          handleAddToCartClick={handleAddToCartClick}
+        >
           <StylizedCartIcon />
           Add to cart
         </Button>
