@@ -135,7 +135,7 @@ export default function Cart() {
         {addToCart.length === 0 || addToCart.quantity === 0 ? (
           <p>Your cart is empty</p> ) : (  
             <>    
-              <li>
+              <li> {/* Fazer mapeamento para cada objeto/item gerar um li */}
                 <StylizedItemContainer>
                   <StylizedProductContainer>
                     <StylizedLink to={'/'}>
