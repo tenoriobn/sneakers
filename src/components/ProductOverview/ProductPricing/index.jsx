@@ -158,12 +158,12 @@ export default function ProductPricing({ productData }) {
       const calculatedAmount = parseFloat(productData.productValue.replace(/[^0-9.]/g, '')) * quantity;
       const formattedAmount = '$' + calculatedAmount.toFixed(2);
 
-      setAddToCart((prevCart) => ({
+      setAddToCart((prevCart) => [{
         ...prevCart,
         quantity: quantity,
         productValue: productData.productValue,
         amount: formattedAmount,
-      }));
+      }]);
     }
   }, [setAddItem, addItem, setAddToCart, quantity, productData.productValue])
 

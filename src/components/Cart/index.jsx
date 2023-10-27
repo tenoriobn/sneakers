@@ -25,7 +25,6 @@ const StylizedCartContainer = styled.div`
   max-width: 360px;
   width: 100%; 
 
-  /* Posicionamento do Cart para versões desktop */
   @media (min-width: 768px){
     left: 74%;
   }
@@ -123,9 +122,12 @@ const StylizedLink = styled(Link)`
 `
 
 export default function Cart() {
-  const {addToCart} = useCartContext();
+  const {addToCart, setAddToCart} = useCartContext();
 
-  console.log(addToCart)
+  const deleteItem = (id) => {
+    const updatedCart = addToCart.filter((cartItem) => cartItem.id !==id);
+    setAddToCart(updatedCart);
+  }
 
   return (
     <StylizedCartContainer>
@@ -135,30 +137,33 @@ export default function Cart() {
         {addToCart.length === 0 || addToCart.quantity === 0 ? (
           <p>Your cart is empty</p> ) : (  
             <>    
-              <li> {/* Fazer mapeamento para cada objeto/item gerar um li */}
-                <StylizedItemContainer>
-                  <StylizedProductContainer>
-                    <StylizedLink to={'/'}>
-                      <StylizedProductImage src={product} alt="Product image" />
-                    </StylizedLink>
+              {addToCart.map((cartItem) => (
+                <li key={cartItem.id}> {/* Fazer mapeamento para cada objeto/item gerar um li */}
+                  <StylizedItemContainer>
+                    <StylizedProductContainer>
+                      <StylizedLink to={'/'}>
+                        <StylizedProductImage src={product} alt="Product image" />
+                      </StylizedLink>
 
-                    <StylizedProductInfoContainer>
-                      <StylizedProductName>{addToCart.productName}</StylizedProductName>
-                      <ProductValue>
-                        {addToCart.productValue} x {addToCart.quantity} <span>{addToCart.amount}</span>
-                      </ProductValue>
-                    </StylizedProductInfoContainer>
-                  </StylizedProductContainer>
+                      <StylizedProductInfoContainer>
+                        <StylizedProductName>{cartItem.productName}</StylizedProductName>
+                        <ProductValue>
+                          {cartItem.productValue} x {cartItem.quantity} <span>{cartItem.amount}</span>
+                        </ProductValue>
+                      </StylizedProductInfoContainer>
+                    </StylizedProductContainer>
 
-                  <StylizedButton>
-                    <StylizedIconDelete />
-                  </StylizedButton>
+                    <StylizedButton onClick={() => deleteItem(cartItem.id)}>
+                      <StylizedIconDelete />
+                    </StylizedButton>
 
-                </StylizedItemContainer>
-              </li>
-
-            <Button>Checkout</Button>
-          </>)
+                  </StylizedItemContainer>
+                </li>
+              
+              ))}
+              <Button>Checkout</Button>
+            </>
+          )
         }
       </StylizedProductList>
     </StylizedCartContainer>

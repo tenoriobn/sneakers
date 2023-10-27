@@ -72,6 +72,7 @@ export default function ProductDescription({ productData }) {
       setAddToCart((prevCart) => ({
         ...prevCart,
         productName: productData.productName,
+        id: 1
       }));
     }
   }, [addItem, setAddToCart, productData.productName]);

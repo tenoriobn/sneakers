@@ -19,11 +19,16 @@ const StylizedProductOverviewContainer = styled.section`
 `
 
 export default function ProductOverview() {
+
   return (
-    <StylizedProductOverviewContainer>
-      <ProductDescription productData={productData} />
-      <ProductPricing productData={productData} />
-    </StylizedProductOverviewContainer>
+    <>
+      {productData.map((product) => (
+        <StylizedProductOverviewContainer key={product.id}>
+          <ProductDescription productData={product} />
+          <ProductPricing productData={product} />
+        </StylizedProductOverviewContainer>
+      ))}
+    </>
   )
 }
 
