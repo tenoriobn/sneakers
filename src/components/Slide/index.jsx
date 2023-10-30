@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import Arrows from './Arrows';
 import { useState } from 'react';
 import Thumbnail from '../Thumbnail';
+import ModalZoom from '../ModalZoom';
 
 const StylizedSlideContainer = styled.section`
   position: relative;
@@ -76,6 +77,8 @@ export default function Slide({ slidePhotos = []}) {
       <Thumbnail 
         slidePhotos={slidePhotos} 
       />
+
+      <ModalZoom />
     </StylizedSlideContainer>
   )
 }

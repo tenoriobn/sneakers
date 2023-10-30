@@ -4,6 +4,7 @@ import GlobalStyles from "../GlobalStyles";
 import theme from '@/theme';
 import { Outlet } from "react-router-dom";
 import { CartProvider } from "../../context/CartContext";
+import { ModalZoomProvider } from "../../context/ModalZoomContext";
 
 const StylizedMain = styled.main`
 
@@ -33,13 +34,14 @@ export default function DefaultPage() {
   return (
     <ThemeProvider theme={theme}>
       <CartProvider>
-        <GlobalStyles />
-        <Header />
-        <StylizedMain>
-          <Outlet />
-        </StylizedMain>
+        <ModalZoomProvider>
+          <GlobalStyles />
+          <Header />
+          <StylizedMain>
+            <Outlet />
+          </StylizedMain>
+        </ModalZoomProvider>
       </CartProvider>
-
     </ThemeProvider>
   )
 }

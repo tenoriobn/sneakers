@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { useModalZoomContext } from '../../context/ModalZoomContext';
 
 const StylizedImageList = styled.ul`
   display: none;
@@ -31,12 +32,13 @@ const StylizedThumbnail = styled.img`
 `
 
 export default function Thumbnail({ slidePhotos }) {
+  const { setSelectedPhoto} = useModalZoomContext();
 
   return (
     <div>
       <StylizedImageList>
         {slidePhotos.map((thumbnail) => (
-          <li key={thumbnail.id}>
+          <li key={thumbnail.id} onClick={() => setSelectedPhoto(thumbnail)}>
             <StylizedThumbnail src={thumbnail.thumbnailPath} alt={thumbnail.description} />
           </li>
         ))}
