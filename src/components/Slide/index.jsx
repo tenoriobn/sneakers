@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import Arrows from './Arrows';
 import { useState } from 'react';
 import Thumbnail from '../Thumbnail';
-import ModalZoom from '../ModalZoom';
+import photos from "../../data/photos.json";
 
 const StylizedSlideContainer = styled.section`
   position: relative;
@@ -44,9 +44,10 @@ const StylizedProductImage = styled.img`
   
 `
 
-export default function Slide({ slidePhotos = []}) {
+export default function Slide() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0); // Controle das imagens
   const [imageOpacity, setImageOpacity] = useState(1); // Controle da opacidade
+  const [slidePhotos = []] = useState(photos);
 
   const nextImage = () => {
     setImageOpacity(0); // Define a imagem para 0% de opacidade atualizando o estado
@@ -77,8 +78,6 @@ export default function Slide({ slidePhotos = []}) {
       <Thumbnail 
         slidePhotos={slidePhotos} 
       />
-
-      <ModalZoom />
     </StylizedSlideContainer>
   )
 }

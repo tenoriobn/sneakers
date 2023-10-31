@@ -5,6 +5,7 @@ import theme from '@/theme';
 import { Outlet } from "react-router-dom";
 import { CartProvider } from "../../context/CartContext";
 import { ModalZoomProvider } from "../../context/ModalZoomContext";
+import ModalZoom from "../ModalZoom";
 
 const StylizedMain = styled.main`
 
@@ -39,6 +40,7 @@ export default function DefaultPage() {
           <Header />
           <StylizedMain>
             <Outlet />
+            <ModalZoom />
           </StylizedMain>
         </ModalZoomProvider>
       </CartProvider>
