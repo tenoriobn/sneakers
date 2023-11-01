@@ -11,11 +11,12 @@ const StylizedImageList = styled.ul`
     list-style: none;
 
     margin-top: 2rem;
-    padding: 0;
+    padding: ${props => props.$slide === 'ProductPage' ? '0' : '0 50px 0 50px'};
   }
 
   @media (min-width: 1200px) {
     justify-content: inherit;
+
   }
 `
 
@@ -31,15 +32,15 @@ const StylizedThumbnail = styled.img`
   }
 `
 
-export default function Thumbnail({ slidePhotos }) {
+export default function Thumbnail({ slidePhotos, slide }) {
   const { setSelectedPhoto} = useModalZoomContext();
 
   return (
     <div>
-      <StylizedImageList>
+      <StylizedImageList $slide={slide} >
         {slidePhotos.map((thumbnail) => (
           <li key={thumbnail.id} onClick={() => setSelectedPhoto(thumbnail)}>
-            <StylizedThumbnail src={thumbnail.thumbnailPath} alt={thumbnail.description} />
+            <StylizedThumbnail $slide={slide} src={thumbnail.thumbnailPath} alt={thumbnail.description} />
           </li>
         ))}
       </StylizedImageList>

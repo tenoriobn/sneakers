@@ -5,7 +5,7 @@ export default function ProductPage() {
 
   return (
     <>
-        <Slide />
+        <Slide slide="ProductPage" />
         <ProductOverview />
     </>
   )

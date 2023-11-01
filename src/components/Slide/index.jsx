@@ -10,12 +10,17 @@ const StylizedSlideContainer = styled.section`
   width: 100%;
 
   @media (min-width: 992px) {
-    width: 45%;
+    width: ${props => props.$slide === 'ProductPage' ? '45%' : '500px'};
   }
 
   @media (min-width: 1200px) {
-    width: 444px;
+    width: 444px; //550px -> zoom
+    width: ${props => props.$slide === 'ProductPage' ? '444px' : '550px'};
   }
+`
+
+const StylizedSlideArrowsContainer = styled.div`
+  position: relative;
 `
 
 const StylizedProductImage = styled.img`
@@ -37,14 +42,12 @@ const StylizedProductImage = styled.img`
   }
 
   @media (min-width: 1200px) {
-    height: 445px;
-    width: 445px;
+    height: ${props => props.$slide === 'ProductPage' ? '445px' : '550px'}; //445px; //550px -> zoom
+    width: ${props => props.$slide === 'ProductPage' ? '445px' : '550px'}; //445px; //550px -> zoom
   }
-
-  
 `
 
-export default function Slide() {
+export default function Slide({ slide }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0); // Controle das imagens
   const [imageOpacity, setImageOpacity] = useState(1); // Controle da opacidade
   const [slidePhotos = []] = useState(photos);
@@ -68,15 +71,22 @@ export default function Slide() {
   }
 
   return (
-    <StylizedSlideContainer>
-      <StylizedProductImage 
-        src={slidePhotos[currentImageIndex].productImagePath} 
-        alt={slidePhotos[currentImageIndex].description} 
-        style={{ opacity: imageOpacity }}
-      />
-      <Arrows nextImage={nextImage} previousImage={previousImage} />
+    <StylizedSlideContainer $slide={ slide }>
+      <StylizedSlideArrowsContainer>
+        <StylizedProductImage $slide={ slide }
+          src={slidePhotos[currentImageIndex].productImagePath} 
+          alt={slidePhotos[currentImageIndex].description} 
+          style={{ opacity: imageOpacity }}
+        />
+        <Arrows 
+          nextImage={nextImage} 
+          previousImage={previousImage} 
+          slide={slide} 
+        />
+      </StylizedSlideArrowsContainer>
       <Thumbnail 
         slidePhotos={slidePhotos} 
+        slide={ slide }
       />
     </StylizedSlideContainer>
   )

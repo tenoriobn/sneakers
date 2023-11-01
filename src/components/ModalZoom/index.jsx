@@ -5,7 +5,11 @@ import CloseIcon from './icon-close.svg?react';
 import theme from '@/theme';
 
 const StylizedDialog = styled.dialog`
-  background-color: #000000a4;
+  @media (max-width: 991px) {
+    display: none;
+  }
+  
+  background-color: #000000b7;
   border: none;
   box-sizing: border-box;
 
@@ -17,6 +21,7 @@ const StylizedDialog = styled.dialog`
   height: 100%;
 
   z-index: 5;
+
 `
 
 const ContainerModal = styled.div`
@@ -54,7 +59,7 @@ export default function ModalZoom() {
       <StylizedDialog open={!!selectedPhoto}>
         <ContainerModal>
           <StylizedCloseIcon onClick={() => setSelectedPhoto(false)} />
-          <Slide />
+          <Slide slide="ModalZoom" />
         </ContainerModal>
       </StylizedDialog>
     </>
