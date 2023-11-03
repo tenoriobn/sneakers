@@ -51,8 +51,7 @@ const StylizedCloseIcon = styled(CloseIcon)`
 `
 
 export default function ModalZoom() {
-  const {selectedPhoto} = useModalZoomContext();
-  const { setSelectedPhoto} = useModalZoomContext();
+  const {selectedPhoto, setSelectedPhoto} = useModalZoomContext();
 
   return (
     <>
