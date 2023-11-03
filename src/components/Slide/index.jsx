@@ -49,53 +49,52 @@ const StylizedProductImage = styled.img`
 `
 
 export default function Slide({ slide }) {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0); // Controle das imagens
   const [imageOpacity, setImageOpacity] = useState(1); // Controle da opacidade
   const [slidePhotos = []] = useState(photos);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0); // Controle das imagens
   const {selectedPhoto, setSelectedPhoto} = useModalZoomContext();
+  const [currentImage, setCurrentImage] = useState(slidePhotos[0].productImagePath);
+
+  const changeImage = (newIndex) => {
+    setImageOpacity(0);
+    setTimeout(() => {
+      setCurrentImageIndex(newIndex);
+      setCurrentImage(slidePhotos[newIndex].productImagePath); // Atualize a imagem atual
+      setImageOpacity(1);
+    }, 300);
+  };
 
   const nextImage = () => {
-    setImageOpacity(0); // Define a imagem para 0% de opacidade atualizando o estado
-    setTimeout(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % slidePhotos.length); // troca a imagem
+    const newIndex = (currentImageIndex + 1) % slidePhotos.length;
+    changeImage(newIndex);
 
-      setImageOpacity(1); // Define a nova imagem para 100% de opacidade
-    }, 300); // executa as atualizações após 300ms, gerando o fade-in.
   };
 
   const previousImage = () => {
-    setImageOpacity(0);
-    setTimeout(() => {
-      setCurrentImageIndex((prevIndex) =>
-        prevIndex === 0 ? slidePhotos.length - 1 : prevIndex - 1
-      );
-
-      console.log(currentImageIndex)
-
-      setImageOpacity(1);
-    }, 300);
-  }
+    const newIndex = currentImageIndex === 0 ? slidePhotos.length - 1 : currentImageIndex - 1;
+    changeImage(newIndex);
+  };
 
   useEffect(() => {
     if (selectedPhoto && slide === "ModalZoom") {
-      const selectedImageIndex = slidePhotos.findIndex(
-        (photo) => photo.productImagePath === selectedPhoto.productImagePath
-      );
+      const selectedImageIndex = slidePhotos.findIndex((photo) => photo.productImagePath === selectedPhoto.productImagePath);
+      
       if (selectedImageIndex !== -1) {
         setCurrentImageIndex(selectedImageIndex);
+        setCurrentImage(selectedPhoto.productImagePath); // Atualiza a imagem atual
+        setSelectedPhoto(currentImage)
       }
-
-      console.log('thumbnail:', selectedImageIndex)
     }
-  }, [selectedPhoto, slidePhotos, setSelectedPhoto, slide]);
+  }, [selectedPhoto, slidePhotos, setSelectedPhoto, currentImage, slide]);
 
-  const chosenPhoto = slidePhotos[currentImageIndex].productImagePath;
+
 
   return (
     <StylizedSlideContainer $slide={ slide }>
       <StylizedSlideArrowsContainer>
-        <StylizedProductImage $slide={ slide }
-          src={chosenPhoto} 
+        <StylizedProductImage 
+          $slide={ slide }
+          src={currentImage} 
           alt={slidePhotos[currentImageIndex].description} 
           style={{ opacity: imageOpacity }}
         />
