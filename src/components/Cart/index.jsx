@@ -8,6 +8,9 @@ import { Link } from 'react-router-dom';
 import { useCartContext } from '../../context/CartContext';
 
 const StylizedCartContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+
   background-color: ${theme.colors.white};
   border-radius: .5rem;
   box-shadow: 0px 14px 50px -24px #1d2025;
@@ -21,7 +24,7 @@ const StylizedCartContainer = styled.div`
 
   padding: 1.25rem 0 2rem 0;
 
-  height: 256px;
+  min-height: 256px;
   max-width: 360px;
   width: 100%; 
 
@@ -54,11 +57,22 @@ const StylizedCartTitle = styled.h2`
 const StylizedProductList = styled.ul`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  flex: 1;
 
   border-top: 1px solid;
   border-color: ${theme.colors.veryLightGray};
 
+  height: inherit;
+
   padding: 1.5rem 1.5rem 0 1.5rem;
+`
+
+const StylizedEmpityParagraph = styled.p`
+  align-self: center;
+  color: ${theme.colors.darkGrayishBlue};
+  font-size: 1rem;
+  font-weight: 700;
 `
 
 const StylizedItemContainer = styled.div`
@@ -135,32 +149,32 @@ export default function Cart() {
 
       <StylizedProductList>
         {addToCart.length === 0 || addToCart.quantity === 0 ? (
-          <p>Your cart is empty</p> ) : (  
+          <StylizedEmpityParagraph>Your cart is empty</StylizedEmpityParagraph> ) : (  
             <>    
               {addToCart.map((cartItem) => (
-                <li key={cartItem.id}> {/* Fazer mapeamento para cada objeto/item gerar um li */}
-                  <StylizedItemContainer>
-                    <StylizedProductContainer>
-                      <StylizedLink to={'/'}>
-                        <StylizedProductImage src={product} alt="Product image" />
-                      </StylizedLink>
+              <li key={cartItem.id}> {/* Fazer mapeamento para cada objeto/item gerar um li */}
+                <StylizedItemContainer>
+                  <StylizedProductContainer>
+                    <StylizedLink to={'/'}>
+                      <StylizedProductImage src={product} alt="Product image" />
+                    </StylizedLink>
 
-                      <StylizedProductInfoContainer>
-                        <StylizedProductName>{cartItem.productName}</StylizedProductName>
-                        <ProductValue>
-                          {cartItem.productValue} x {cartItem.quantity} <span>{cartItem.amount}</span>
-                        </ProductValue>
-                      </StylizedProductInfoContainer>
-                    </StylizedProductContainer>
+                    <StylizedProductInfoContainer>
+                      <StylizedProductName>{cartItem.productName}</StylizedProductName>
+                      <ProductValue>
+                        {cartItem.productValue} x {cartItem.quantity} <span>{cartItem.amount}</span>
+                      </ProductValue>
+                    </StylizedProductInfoContainer>
+                  </StylizedProductContainer>
 
-                    <StylizedButton onClick={() => deleteItem(cartItem.id)}>
-                      <StylizedIconDelete />
-                    </StylizedButton>
+                  <StylizedButton onClick={() => deleteItem(cartItem.id)}>
+                    <StylizedIconDelete />
+                  </StylizedButton>
 
-                  </StylizedItemContainer>
-                </li>
-              
+                </StylizedItemContainer>
+              </li>          
               ))}
+              
               <Button>Checkout</Button>
             </>
           )

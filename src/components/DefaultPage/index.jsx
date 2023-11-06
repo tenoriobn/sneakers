@@ -8,6 +8,7 @@ import { ModalZoomProvider } from "../../context/ModalZoomContext";
 import ModalZoom from "../ModalZoom";
 
 const StylizedMain = styled.main`
+  margin-bottom: 5rem;
 
   @media (min-width: 768px) {
     display: flex;

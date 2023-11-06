@@ -32,9 +32,6 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
-body {
-	line-height: 1;
-}
 ol, ul {
 	list-style: none;
 }
@@ -57,8 +54,8 @@ html {
   font-family: ${theme.fontFamily.kumbh};
 }
 body {
+  line-height: 1;
   margin: 0 auto;
-  min-height: 100vh;
 
   width: 100%;
 
