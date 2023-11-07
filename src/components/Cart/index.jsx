@@ -16,7 +16,7 @@ const StylizedCartContainer = styled.div`
   box-shadow: 0px 14px 50px -24px #1d2025;
   box-sizing: border-box;
 
-  position: fixed;
+  position: absolute;
   top: 78px;
   left: 50%;
   transform: translateX(-50%);
@@ -25,8 +25,12 @@ const StylizedCartContainer = styled.div`
   padding: 1.25rem 0 2rem 0;
 
   min-height: 256px;
-  max-width: 360px;
+  max-width: 310px;
   width: 100%; 
+
+  @media (min-width: 375px) {
+    max-width: 360px;
+  }
 
   @media (min-width: 768px){
     left: 74%;
@@ -152,7 +156,7 @@ export default function Cart() {
           <StylizedEmpityParagraph>Your cart is empty</StylizedEmpityParagraph> ) : (  
             <>    
               {addToCart.map((cartItem) => (
-              <li key={cartItem.id}> {/* Fazer mapeamento para cada objeto/item gerar um li */}
+              <li key={cartItem.id}>
                 <StylizedItemContainer>
                   <StylizedProductContainer>
                     <StylizedLink to={'/'}>
@@ -183,14 +187,3 @@ export default function Cart() {
     </StylizedCartContainer>
   )
 }
-
-
-/*
-
-  Utilizar esse componente no lugar certo
-
-  - Aqui vai pegar via status os dados dinamicamente para preencher `StylizedProductName` e `ProductValue`
-  sendo que se for selecionado mais de 3 produtos, deve mostrar o valor de cada item e o valor
-  multiplicado pela quantidade.
-
-*/

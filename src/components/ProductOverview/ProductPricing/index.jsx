@@ -2,7 +2,7 @@ import styled from "styled-components";
 import IconIncrease from "./icon-increase.svg?react"
 import IconDecrease from "./icon-decrease.svg?react"
 import CartIcon from "./icon-cart.svg?react"
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Button from "../../Button";
 import theme from "@/theme";
 import { useCartContext } from "../../../context/CartContext";
@@ -134,8 +134,8 @@ const StylizedCartIcon = styled(CartIcon)`
 `
 
 export default function ProductPricing({ productData }) {
-  const [quantity, setQuantity] = useState(0);
-  const {addItem, setAddItem, setAddToCart} = useCartContext();
+
+  const {addItem, setAddItem, setAddToCart, quantity, setQuantity} = useCartContext();
 
   const increaseQuantity = () => {
     setQuantity(quantity + 1);
@@ -152,12 +152,12 @@ export default function ProductPricing({ productData }) {
   }
 
   useEffect(() => {
+    const calculatedAmount = parseFloat(productData.productValue.replace(/[^0-9.]/g, '')) * quantity;
+    const formattedAmount = '$' + calculatedAmount.toFixed(2);
+
     if (addItem === true) {
       setAddItem(!addItem);
-      
-      const calculatedAmount = parseFloat(productData.productValue.replace(/[^0-9.]/g, '')) * quantity;
-      const formattedAmount = '$' + calculatedAmount.toFixed(2);
-
+    
       setAddToCart((prevCart) => [{
         ...prevCart,
         quantity: quantity,

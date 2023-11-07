@@ -128,11 +128,10 @@ export default function Header() {
           <StylizedButton onClick={toggleCart}>
             <StylizedCartIcon />
           </StylizedButton>
-
-          {isCartOpen && <Cart />} {/* Ao clicar fora do cart ele também deve fechar */}
-
           <StylizedAvatar src={avatarIcon} alt="profile picture" />
         </StylizedContainer>
+
+        {isCartOpen && <Cart />} {/* Ao clicar fora do cart ele também deve fechar */}
       </StylizedNav>
     </StylizedHeader>
   )
