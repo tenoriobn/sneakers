@@ -69,8 +69,7 @@ export default function ProductDescription({ productData }) {
 
   useEffect(() => {
     if (addItem === true) {
-      setAddToCart((prevCart) => ({
-        ...prevCart,
+      setAddToCart(() => ({
         productName: productData.productName,
         id: 1
       }));

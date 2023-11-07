@@ -139,7 +139,7 @@ export default function Cart() {
   const {addToCart, setAddToCart} = useCartContext();
 
   const deleteItem = (id) => {
-    const updatedCart = addToCart.filter((cartItem) => cartItem.id !==id);
+    const updatedCart = addToCart.filter((cartItem) => cartItem.id !== id);
     setAddToCart(updatedCart);
   }
 
