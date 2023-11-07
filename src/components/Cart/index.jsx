@@ -148,7 +148,7 @@ export default function Cart() {
       <StylizedCartTitle>Cart</StylizedCartTitle>
 
       <StylizedProductList>
-        {addToCart.length === 0 || addToCart.quantity === 0 ? (
+        {addToCart.every((cartItem) => cartItem.quantity === 0) ? (
           <StylizedEmpityParagraph>Your cart is empty</StylizedEmpityParagraph> ) : (  
             <>    
               {addToCart.map((cartItem) => (
