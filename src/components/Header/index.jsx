@@ -5,7 +5,7 @@ import theme from '@/theme';
 import Cart from '../Cart';
 import MenuItems from './MenuItems';
 
-import Logo from './logo.svg?react'; {/* Svg componente */}
+import Logo from './logo.svg?react'; 
 import avatarIcon from './image-avatar.png';
 import CloseIcon from './icon-close.svg?react';
 import CartIcon from './icon-cart.svg?react';

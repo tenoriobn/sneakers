@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import theme from "@/theme";
 import Button from "../../Button";
 import { useCartContext } from "@/context/CartContext";
@@ -135,7 +135,8 @@ const StylizedCartIcon = styled(CartIcon)`
 
 export default function ProductPricing({ productData }) {
 
-  const {addItem, setAddItem, setAddToCart, quantity, setQuantity} = useCartContext();
+  const {addItem, setAddItem, setAddToCart} = useCartContext();
+  const [quantity, setQuantity] = useState(0);
 
   const increaseQuantity = () => {
     setQuantity(quantity + 1);
@@ -171,10 +172,10 @@ export default function ProductPricing({ productData }) {
     <>
       <StylizedProductPricingContainer>
         <StylizedProductPricingWrapper>
-          <StylizedProductValue>{productData.productValue}</StylizedProductValue> {/* Preço */}
-          <StylizedDiscount>{productData.discount}</StylizedDiscount> {/* Porcentagem de desconto */}
+          <StylizedProductValue>{productData.productValue}</StylizedProductValue> 
+          <StylizedDiscount>{productData.discount}</StylizedDiscount> 
         </StylizedProductPricingWrapper>
-        <StylizedPriceWithoutDiscount>{productData.priceWithoutDiscount}</StylizedPriceWithoutDiscount> {/* Preço anterior sem desconto */}
+        <StylizedPriceWithoutDiscount>{productData.priceWithoutDiscount}</StylizedPriceWithoutDiscount> 
       </StylizedProductPricingContainer>
 
       <StylizedQuantityControlPanel>

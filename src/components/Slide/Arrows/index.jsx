@@ -15,7 +15,6 @@ const StylizedSlideIconContainer = styled.div`
   width: ${props => props.$slide === 'ProductPage' ? '100%' : '115%'};
 
   @media (min-width: 992px) {
-    /* display: ${props => props.$slide}; */
     display: ${props => props.$slide === 'ProductPage' ? 'none' : 'flex'};
   }
 `

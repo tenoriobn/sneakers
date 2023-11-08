@@ -29,7 +29,7 @@ const StylizedProductImage = styled.img`
   object-fit: cover;
   object-position: center center;
 
-  transition: opacity 0.3s ease-in-out; // aplica 300ms de transição gerando o fade-out.
+  transition: opacity 0.3s ease-in-out;
 
   height: 300px;
   width: 100%;
@@ -43,15 +43,15 @@ const StylizedProductImage = styled.img`
   }
 
   @media (min-width: 1200px) {
-    height: ${props => props.$slide === 'ProductPage' ? '445px' : '550px'}; //445px; //550px -> zoom
-    width: ${props => props.$slide === 'ProductPage' ? '445px' : '550px'}; //445px; //550px -> zoom
+    height: ${props => props.$slide === 'ProductPage' ? '445px' : '550px'};
+    width: ${props => props.$slide === 'ProductPage' ? '445px' : '550px'}; 
   }
 `
 
 export default function Slide({ slide }) {
-  const [imageOpacity, setImageOpacity] = useState(1); // Controle da opacidade
+  const [imageOpacity, setImageOpacity] = useState(1); 
   const [slidePhotos = []] = useState(photos);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0); // Controle das imagens
+  const [currentImageIndex, setCurrentImageIndex] = useState(0); 
   const {selectedPhoto, setSelectedPhoto} = useModalZoomContext();
   const [currentImage, setCurrentImage] = useState(slidePhotos[0].productImagePath);
 
@@ -59,7 +59,7 @@ export default function Slide({ slide }) {
     setImageOpacity(0);
     setTimeout(() => {
       setCurrentImageIndex(newIndex);
-      setCurrentImage(slidePhotos[newIndex].productImagePath); // Atualize a imagem atual
+      setCurrentImage(slidePhotos[newIndex].productImagePath); 
       setImageOpacity(1);
     }, 300);
   };
@@ -77,11 +77,12 @@ export default function Slide({ slide }) {
 
   useEffect(() => {
     if (selectedPhoto && slide === "ModalZoom") {
-      const selectedImageIndex = slidePhotos.findIndex((photo) => photo.productImagePath === selectedPhoto.productImagePath);
+      const selectedImageIndex = slidePhotos.findIndex((photo) => 
+        photo.productImagePath === selectedPhoto.productImagePath);
       
       if (selectedImageIndex !== -1) {
         setCurrentImageIndex(selectedImageIndex);
-        setCurrentImage(selectedPhoto.productImagePath); // Atualiza a imagem atual
+        setCurrentImage(selectedPhoto.productImagePath); 
         setSelectedPhoto(currentImage)
       }
     }

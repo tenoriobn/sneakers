@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import ProductDescription from "./ProductDescription";
 import ProductPricing from "./ProductPricing";
-import productData from "./productData.json";
+import productData from "@/data/productData.json";
 
 const StylizedProductOverviewContainer = styled.section`
   padding: 0 1.5rem;
@@ -31,12 +31,3 @@ export default function ProductOverview() {
     </>
   )
 }
-
-
-/* 
-  - Criar versão desktop
-  - Criar estado de foco `hover` e `Box-shadow nos botões (verificar se tem em outros lugares)`
-  - Não esquecer de aplicar `transitions` nos elementos para tornar a interação suave na página
-  - verificar se existe necessidade de refatorar algo, exceto o `svg component que sera resolvido futuramente`
-
-*/

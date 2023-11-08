@@ -51,9 +51,9 @@ export default function Thumbnail({ slidePhotos, slide }) {
 /*
   Criar as seguintes funcionalidades:
   1º - ao passar o mouse por cima dos `thumbnails` substituir a imagem grande pela que está no foco
-  2º - ao clicar em um dos `thumbnails` expandir a imagem do thumbnails com carrossel e thumbnails em baixo
+  2º - ao clicar em um dos `thumbnails` expandir a imagem do thumbnails com carrossel e thumbnails em baixo*
   3º - a imagem atual expandida tera seu respectivo thumbnail esmaecido.
-  4º - o botão deve fechar a imagem expandida (assim como o estado de foco).
+  4º - o botão deve fechar a imagem expandida (assim como o estado de foco).*
   5º - Ao passar mouse por cima da imagem, oferecer zoom
 
 
