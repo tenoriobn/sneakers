@@ -1,8 +1,8 @@
-import { useModalZoomContext } from "../../context/ModalZoomContext";
-import Slide from "../../components/Slide";
+import { useModalZoomContext } from "@/context/ModalZoomContext";
 import styled from "styled-components";
-import CloseIcon from './icon-close.svg?react';
 import theme from '@/theme';
+import Slide from "@/components/Slide";
+import CloseIcon from './icon-close.svg?react';
 
 const StylizedDialog = styled.dialog`
   @media (max-width: 991px) {

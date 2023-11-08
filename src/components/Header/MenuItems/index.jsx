@@ -1,7 +1,7 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import theme from "@/theme";
 import menuItems from "@/data/menu.json";
-import { Link } from "react-router-dom";
 
 const StylizedBlurredBackground = styled.div`
   background-color: #00000081;

@@ -1,11 +1,11 @@
-import product from './image-product-1-thumbnail.jpg';
-import DeleteIcon from './icon-delete.svg?react';
-import styled from 'styled-components';
-import Button from '../Button';
-import theme from '@/theme';
-import { StylizedButton } from '../Header';
 import { Link } from 'react-router-dom';
-import { useCartContext } from '../../context/CartContext';
+import styled from 'styled-components';
+import theme from '@/theme';
+import Button from '../Button';
+import { StylizedButton } from '../Header';
+import { useCartContext } from '@/context/CartContext';
+import DeleteIcon from './icon-delete.svg?react';
+import product from './image-product-1-thumbnail.jpg';
 
 const StylizedCartContainer = styled.div`
   display: flex;

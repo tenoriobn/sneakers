@@ -1,11 +1,11 @@
 import styled, { ThemeProvider } from "styled-components";
-import Header from "../Header";
-import GlobalStyles from "../GlobalStyles";
-import theme from '@/theme';
 import { Outlet } from "react-router-dom";
-import { CartProvider } from "../../context/CartContext";
-import { ModalZoomProvider } from "../../context/ModalZoomContext";
+import theme from '@/theme';
+import GlobalStyles from "../GlobalStyles";
+import Header from "../Header";
 import ModalZoom from "../ModalZoom";
+import { CartProvider } from "@/context/CartContext";
+import { ModalZoomProvider } from "@/context/ModalZoomContext";
 
 const StylizedMain = styled.main`
   margin-bottom: 5rem;

@@ -1,7 +1,7 @@
-import styled from "styled-components"
-import theme from "@/theme"
-import { useCartContext } from "../../../context/CartContext"
-import { useEffect } from "react"
+import { useEffect } from "react";
+import styled from "styled-components";
+import theme from "@/theme";
+import { useCartContext } from "@/context/CartContext";
 
 const StylizedCompanyName = styled.h3`
   color: ${theme.colors.orange};

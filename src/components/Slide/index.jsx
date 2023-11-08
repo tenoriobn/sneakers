@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import Arrows from './Arrows';
 import { useEffect, useState } from 'react';
+import Arrows from './Arrows';
 import Thumbnail from '../Thumbnail';
-import photos from "../../data/photos.json";
-import { useModalZoomContext } from '../../context/ModalZoomContext';
+import { useModalZoomContext } from '@/context/ModalZoomContext';
+import photos from "@/data/photos.json";
 
 const StylizedSlideContainer = styled.section`
   position: relative;

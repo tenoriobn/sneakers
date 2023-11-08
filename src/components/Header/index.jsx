@@ -1,14 +1,15 @@
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import theme from '@/theme';
+import Cart from '../Cart';
+import MenuItems from './MenuItems';
+
 import Logo from './logo.svg?react'; {/* Svg componente */}
 import avatarIcon from './image-avatar.png';
 import CloseIcon from './icon-close.svg?react';
 import CartIcon from './icon-cart.svg?react';
 import MenuIcon from './icon-menu.svg?react';
-import MenuItems from './MenuItems';
-import { useState } from 'react';
-import Cart from '../Cart';
-import theme from '@/theme';
-import { Link } from 'react-router-dom';
 
 const StylizedHeader = styled.header`
   background-color: ${theme.colors.lightGray};

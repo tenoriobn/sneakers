@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { useModalZoomContext } from '../../context/ModalZoomContext';
+import { useModalZoomContext } from '@/context/ModalZoomContext';
 
 const StylizedImageList = styled.ul`
   display: none;

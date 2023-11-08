@@ -1,11 +1,11 @@
 import styled from "styled-components";
+import { useEffect } from "react";
+import theme from "@/theme";
+import Button from "../../Button";
+import { useCartContext } from "@/context/CartContext";
 import IconIncrease from "./icon-increase.svg?react"
 import IconDecrease from "./icon-decrease.svg?react"
 import CartIcon from "./icon-cart.svg?react"
-import { useEffect } from "react";
-import Button from "../../Button";
-import theme from "@/theme";
-import { useCartContext } from "../../../context/CartContext";
 
 const StylizedProductPricingContainer = styled.div`
   display: flex;
