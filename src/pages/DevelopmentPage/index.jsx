@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Link } from 'react-router-dom'
 import theme from '@/theme';
 import IconNotFound from "./notfound.svg?react";
-import IconPrevious from '../../components/Slide/Arrows/icon-previous.svg?react'
+import { ReactComponent as IconPrevious } from '@/components/Slide/Arrows/icon-previous.svg?react'
 
 const StylizedContainer = styled.div`
   box-sizing: border-box;

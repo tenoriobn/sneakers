@@ -91,7 +91,7 @@ export default function Slide({ slide }) {
 
 
   return (
-    <StylizedSlideContainer $slide={ slide }>
+    <StylizedSlideContainer $slide={ slide } aria-labelledby="Slide section">
       <StylizedSlideArrowsContainer>
         <StylizedProductImage 
           $slide={ slide }
