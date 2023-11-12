@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import theme from '@/theme';
 import IconNext from './icon-next.svg?react';
-import IconPrevious from './icon-previous.svg?react';
+import IconPrevious from '@/icons/icon-previous.svg?react';
 
 const StylizedSlideIconContainer = styled.div`
   cursor: pointer;
