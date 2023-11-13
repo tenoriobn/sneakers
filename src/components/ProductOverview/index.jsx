@@ -23,7 +23,7 @@ export default function ProductOverview() {
   return (
     <>
       {productData.map((product) => (
-        <StylizedProductOverviewContainer key={product.id}  aria-labelledby="Product Overview Section">
+        <StylizedProductOverviewContainer key={product.id} >
           <ProductDescription productData={product} />
           <ProductPricing productData={product} />
         </StylizedProductOverviewContainer>
